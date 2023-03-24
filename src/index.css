@@ -22,4 +22,8 @@
   .group {
     @apply flex items-center rounded bg-slate-50 outline outline-1 outline-slate-200;
   }
+
+  .group:has(.password:focus) {
+    @apply outline-light ring-4 ring-dark;
+  }
 }
