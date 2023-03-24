@@ -12,7 +12,7 @@
   }
 
   .text {
-    @apply rounded outline-1 outline-slate-100 focus:outline-light focus:ring-4 focus:ring-dark;
+    @apply rounded outline-1 outline-slate-100 focus:outline-dark focus:ring-4 focus:ring-light;
   }
 
   .password {
@@ -24,7 +24,7 @@
   }
 
   .group:has(.password:focus) {
-    @apply outline-light ring-4 ring-dark;
+    @apply outline-dark ring-4 ring-light;
   }
 
   .seen {
