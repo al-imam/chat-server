@@ -18,4 +18,8 @@
   .password {
     @apply w-full rounded;
   }
+
+  .group {
+    @apply flex items-center rounded bg-slate-50 outline outline-1 outline-slate-200;
+  }
 }
