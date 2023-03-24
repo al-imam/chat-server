@@ -5,13 +5,15 @@ import SingUp from "@pages/SingUp";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<ChatServer />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/singup" element={<SingUp />} />
-      </Routes>
-    </BrowserRouter>
+    <main className="container mx-auto">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ChatServer />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/singup" element={<SingUp />} />
+        </Routes>
+      </BrowserRouter>
+    </main>
   );
 }
 
