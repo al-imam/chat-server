@@ -26,4 +26,8 @@
   .group:has(.password:focus) {
     @apply outline-light ring-4 ring-dark;
   }
+
+  .seen {
+    @apply relative h-8 mx-2 bg-white bg-opacity-0 border-none rounded-full outline-none aspect-square;
+  }
 }
