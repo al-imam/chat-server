@@ -7,31 +7,7 @@
     width: min(calc(100vw - 3rem), 25rem);
   }
 
-  .inputs {
-    @apply p-4 bg-white border-none outline-none text-slate-900 outline-offset-0 caret-current placeholder:text-slate-400 placeholder:select-none;
-  }
-
-  .text {
-    @apply rounded outline-1 outline-slate-100 focus:outline-dark focus:ring-4 focus:ring-light;
-  }
-
-  .password {
-    @apply w-full rounded;
-  }
-
-  .group {
-    @apply flex items-center bg-white rounded outline outline-1 outline-slate-100;
-  }
-
   .group:has(.password:focus) {
     @apply outline-dark ring-4 ring-light;
-  }
-
-  .seen {
-    @apply relative flex items-center justify-center h-8 mx-2 bg-black bg-opacity-0 border-none rounded-full outline-none aspect-square hover:bg-opacity-5 active:bg-opacity-10 focus-visible:bg-opacity-10;
-  }
-
-  .eye {
-    @apply flex items-center justify-center w-6 h-6 text-slate-400 hover:text-slate-600;
   }
 }
