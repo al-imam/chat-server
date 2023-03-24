@@ -8,6 +8,10 @@
   }
 
   .inputs {
-    @apply bg-slate-100 text-slate-900 border-none caret-current p-4 placeholder:text-slate-400;
+    @apply bg-slate-50 text-slate-900 border-none caret-current p-4 placeholder:text-slate-400;
+  }
+
+  .text {
+    @apply ring-1 ring-slate-200 rounded;
   }
 }
