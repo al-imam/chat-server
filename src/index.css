@@ -28,6 +28,6 @@
   }
 
   .seen {
-    @apply relative h-8 mx-2 bg-white bg-opacity-0 border-none rounded-full outline-none aspect-square;
+    @apply relative h-8 mx-2 bg-black bg-opacity-0 border-none rounded-full outline-none aspect-square hover:bg-opacity-5 active:bg-opacity-10;
   }
 }
