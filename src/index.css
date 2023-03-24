@@ -8,11 +8,11 @@
   }
 
   .inputs {
-    @apply p-4 border-none outline-none bg-slate-50 text-slate-900 outline-offset-0 caret-current placeholder:text-slate-400 placeholder:select-none;
+    @apply p-4 bg-white border-none outline-none text-slate-900 outline-offset-0 caret-current placeholder:text-slate-400 placeholder:select-none;
   }
 
   .text {
-    @apply rounded outline-1 outline-slate-200 focus:outline-light focus:ring-4 focus:ring-dark;
+    @apply rounded outline-1 outline-slate-100 focus:outline-light focus:ring-4 focus:ring-dark;
   }
 
   .password {
@@ -20,7 +20,7 @@
   }
 
   .group {
-    @apply flex items-center rounded bg-slate-50 outline outline-1 outline-slate-200;
+    @apply flex items-center bg-white rounded outline outline-1 outline-slate-100;
   }
 
   .group:has(.password:focus) {
@@ -28,10 +28,10 @@
   }
 
   .seen {
-    @apply relative flex items-center justify-center h-8 mx-2 bg-black bg-opacity-0 border-none rounded-full outline-none aspect-square hover:bg-opacity-5 active:bg-opacity-10;
+    @apply relative flex items-center justify-center h-8 mx-2 bg-black bg-opacity-0 border-none rounded-full outline-none aspect-square hover:bg-opacity-5 active:bg-opacity-10 focus-visible:bg-opacity-10;
   }
 
   .eye {
-    @apply flex items-center justify-center w-6 h-6;
+    @apply flex items-center justify-center w-6 h-6 text-slate-400 hover:text-slate-600;
   }
 }
