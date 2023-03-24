@@ -9,19 +9,18 @@ export interface InputProps {
 const Input: React.FunctionComponent<InputProps> = ({
   type = "text",
   placeholder,
-  dispatch,
-  value,
-  ac,
+  /* dispatch,
+  value, */
 }) => (
   <input
-    value={value}
+    /* value={value}
     onChange={(evt: React.ChangeEvent<HTMLInputElement>) =>
       dispatch(evt.currentTarget.value)
-    }
+    } */
     className=""
     type={type}
     placeholder={placeholder}
-    autoComplete={ac}
+    autoComplete="off"
     required
   />
 );

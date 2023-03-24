@@ -6,9 +6,8 @@ type InputPasswordProps = Omit<InputProps, "type">;
 
 const InputPassword: React.FunctionComponent<InputPasswordProps> = ({
   placeholder,
-  dispatch,
-  value,
-  ac,
+  /*   dispatch,
+  value, */
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -16,13 +15,13 @@ const InputPassword: React.FunctionComponent<InputPasswordProps> = ({
     <div className="group">
       <input
         className="inputs password"
-        value={value}
+        /* value={value}
         onChange={(evt: React.ChangeEvent<HTMLInputElement>) =>
           dispatch(evt.currentTarget.value)
-        }
+        } */
         type={open ? "text" : "password"}
         placeholder={placeholder}
-        autoComplete={ac}
+        autoComplete="off"
         required
       />
       <button className="seen" type="button" onClick={() => setOpen((p) => !p)}>
