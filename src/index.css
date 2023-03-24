@@ -8,10 +8,10 @@
   }
 
   .inputs {
-    @apply bg-slate-50 text-slate-900 border-none outline-none outline-offset-0 caret-current p-4 placeholder:text-slate-400;
+    @apply p-4 border-none outline-none bg-slate-50 text-slate-900 outline-offset-0 caret-current placeholder:text-slate-400 placeholder:select-none;
   }
 
   .text {
-    @apply outline-1 outline-slate-200 rounded focus:outline-light focus:ring-4 focus:ring-dark;
+    @apply rounded outline-1 outline-slate-200 focus:outline-light focus:ring-4 focus:ring-dark;
   }
 }
