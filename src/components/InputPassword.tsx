@@ -12,7 +12,7 @@ const InputPassword: React.FunctionComponent<InputPasswordProps> = ({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex items-center bg-white rounded outline outline-1 outline-slate-100 group">
+    <div className="flex items-center bg-white rounded outline outline-1 outline-slate-200 group">
       <input
         className="w-full p-4 bg-white border-none rounded outline-none text-slate-900 outline-offset-0 caret-current placeholder:text-slate-400 placeholder:select-none password"
         /* value={value}
