@@ -16,7 +16,7 @@ const InputText: React.FunctionComponent<InputProps> = ({
     onChange={(evt: React.ChangeEvent<HTMLInputElement>) =>
       dispatch(evt.currentTarget.value)
     } */
-    className=""
+    className="inputs text"
     type={type}
     placeholder={placeholder}
     autoComplete="off"
