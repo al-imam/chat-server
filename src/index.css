@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .w-sm-screen {
+    width: min(calc(100vw - 3rem), 25rem);
+  }
+}
