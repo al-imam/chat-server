@@ -14,4 +14,8 @@
   .text {
     @apply rounded outline-1 outline-slate-200 focus:outline-light focus:ring-4 focus:ring-dark;
   }
+
+  .password {
+    @apply w-full rounded;
+  }
 }
