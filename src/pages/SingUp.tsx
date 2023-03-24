@@ -1,3 +1,3 @@
-export default function ChatServer() {
+export default function SingUp() {
   return <div>Hi sing-up</div>;
 }
