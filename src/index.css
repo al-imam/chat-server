@@ -6,4 +6,8 @@
   .w-sm-screen {
     width: min(calc(100vw - 3rem), 25rem);
   }
+
+  .inputs {
+    @apply bg-slate-100;
+  }
 }
