@@ -1,12 +1,11 @@
 export interface InputProps {
   type: string;
   placeholder: string;
-  dispatch: (value: string) => void;
-  value: string;
-  ac?: string;
+  /*   dispatch: (value: string) => void;
+  value: string; */
 }
 
-const Input: React.FunctionComponent<InputProps> = ({
+const InputText: React.FunctionComponent<InputProps> = ({
   type = "text",
   placeholder,
   /* dispatch,
@@ -25,4 +24,4 @@ const Input: React.FunctionComponent<InputProps> = ({
   />
 );
 
-export default Input;
+export default InputText;
