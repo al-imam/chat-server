@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -8,7 +11,7 @@ export default {
         dark: "#bac9ff",
       },
       fontFamily: {
-        primary: "'Ubuntu', sans-serif",
+        primary: ["Ubuntu", ...fontFamily.sans],
       },
     },
   },
