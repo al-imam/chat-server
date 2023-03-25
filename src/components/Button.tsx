@@ -13,7 +13,7 @@ export default function Button({
     <button
       type={type}
       disabled={disabled}
-      className="py-3 font-bold text-white rounded bg-my-primary enabled:hover:bg-my-hover enabled:active:bg-my-active disabled:bg-opacity-50 disabled:cursor-wait "
+      className="py-3 font-bold text-white rounded enabled:active:text-my-slate-300 bg-my-primary enabled:hover:bg-my-hover enabled:active:bg-my-active disabled:bg-opacity-50 disabled:cursor-wait "
     >
       {child}
     </button>
