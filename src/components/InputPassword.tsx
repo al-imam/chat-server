@@ -8,9 +8,14 @@ const InputPassword: React.FunctionComponent<InputPasswordProps> = ({
   placeholder,
 }) => {
   const [open, setOpen] = useState(false);
+  const [isFocused, setIsFocus] = useState(false);
 
   return (
-    <div className="flex items-center bg-white rounded outline outline-1 outline-slate-200 group">
+    <div
+      className={`flex items-center bg-white rounded outline outline-1 outline-slate-200 group ${
+        isFocused ? "outline-dark ring-4 ring-light" : ""
+      }`}
+    >
       <input
         className="w-full p-4 bg-white border-none rounded outline-none text-slate-900 outline-offset-0 caret-current placeholder:text-slate-400 placeholder:select-none password"
         type={open ? "text" : "password"}

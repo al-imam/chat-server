@@ -26,8 +26,4 @@
   .w-sm-screen {
     width: min(calc(100vw - 3rem), 25rem);
   }
-
-  .group:has(.password:focus) {
-    @apply outline-dark ring-4 ring-light;
-  }
 }
