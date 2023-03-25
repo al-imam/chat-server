@@ -7,6 +7,9 @@ export default {
         light: "#6169ff33",
         dark: "#bac9ff",
       },
+      fontFamily: {
+        primary: "'Ubuntu', sans-serif",
+      },
     },
   },
   plugins: [],
