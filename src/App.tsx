@@ -5,7 +5,7 @@ import SingUp from "@pages/SingUp";
 
 function App() {
   return (
-    <main className="container mx-auto">
+    <main className="mx-auto sm:max-w-3xl">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ChatServer />} />
