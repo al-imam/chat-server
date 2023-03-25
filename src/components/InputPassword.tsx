@@ -13,11 +13,11 @@ const InputPassword: React.FunctionComponent<InputPasswordProps> = ({
   return (
     <div
       className={`flex items-center bg-white rounded outline outline-1  group ${
-        isFocused ? "outline-dark ring-4 ring-light" : "outline-slate-200"
+        isFocused ? "outline-dark ring-4 ring-light" : "outline-my-slate-200"
       }`}
     >
       <input
-        className="w-full p-4 bg-white border-none rounded outline-none text-slate-900 outline-offset-0 caret-current placeholder:text-slate-400 placeholder:select-none password"
+        className="w-full p-4 bg-white border-none rounded outline-none text-my-slate-800 outline-offset-0 caret-current placeholder:text-my-slate-300 placeholder:select-none password"
         type={open ? "text" : "password"}
         placeholder={placeholder}
         autoComplete="off"
