@@ -3,6 +3,26 @@
 @tailwind utilities;
 
 @layer components {
+  .mix-gradient {
+    --opacity: 10%;
+    background: linear-gradient(
+        196deg,
+        hsl(306deg 100% 50% / calc(var(--opacity) / 2)),
+        rgba(255, 0, 0, 0) 45.71%
+      ),
+      linear-gradient(
+        101deg,
+        hsl(247deg 100% 50% / calc(var(--opacity) / 1.5)),
+        rgba(0, 255, 0, 0) 50.71%
+      ),
+      linear-gradient(
+        340deg,
+        hsl(102deg 100% 48% / calc(var(--opacity) / 1.2)),
+        rgba(0, 0, 255, 0) 70.71%
+      );
+    background-repeat: no-repeat;
+  }
+
   .w-sm-screen {
     width: min(calc(100vw - 3rem), 25rem);
   }
