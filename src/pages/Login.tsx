@@ -1,6 +1,7 @@
 import InputPassword from "@app/components/InputPassword";
 import InputText from "@app/components/InputText";
 import Button from "@app/components/Button";
+import ShortNotice from "@app/components/ShortNotice";
 
 export default function Login() {
   return (
@@ -8,6 +9,8 @@ export default function Login() {
       <InputText placeholder="Email" type="email" />
       <InputPassword placeholder="Password" />
       <Button child="Login" />
+      <hr className="text-my-slate-200" />
+      <ShortNotice />
     </form>
   );
 }
