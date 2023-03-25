@@ -12,8 +12,8 @@ const InputPassword: React.FunctionComponent<InputPasswordProps> = ({
 
   return (
     <div
-      className={`flex items-center bg-white rounded outline outline-1 outline-slate-200 group ${
-        isFocused ? "outline-dark ring-4 ring-light" : ""
+      className={`flex items-center bg-white rounded outline outline-1  group ${
+        isFocused ? "outline-dark ring-4 ring-light" : "outline-slate-200"
       }`}
     >
       <input
