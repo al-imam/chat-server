@@ -14,7 +14,12 @@ export default function Navbar() {
           <button>✨</button>
         </li>
         <li>
-          <NavLink to="/Singup">3</NavLink>
+          <NavLink
+            className="max-h-[2rem] flex items-center h-full bg-my-primary px-6 text-white rounded shadow"
+            to="/Singup"
+          >
+            Singup
+          </NavLink>
         </li>
       </ul>
     </nav>
