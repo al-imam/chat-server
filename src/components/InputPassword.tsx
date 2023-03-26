@@ -6,6 +6,7 @@ type InputPasswordProps = Omit<InputProps, "type">;
 
 const InputPassword: React.FunctionComponent<InputPasswordProps> = ({
   placeholder,
+  disabled = true,
 }) => {
   const [open, setOpen] = useState(false);
   const [isFocused, setIsFocus] = useState(false);
@@ -24,6 +25,7 @@ const InputPassword: React.FunctionComponent<InputPasswordProps> = ({
         required
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
+        disabled={disabled}
       />
       <button
         className="relative flex items-center justify-center h-8 mx-2 bg-black bg-opacity-0 border-none rounded-full outline-none aspect-square hover:bg-opacity-5 active:bg-opacity-10 focus-visible:bg-opacity-10"
