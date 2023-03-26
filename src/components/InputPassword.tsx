@@ -6,7 +6,7 @@ type InputPasswordProps = Omit<InputProps, "type">;
 
 const InputPassword: React.FunctionComponent<InputPasswordProps> = ({
   placeholder,
-  disabled = true,
+  disabled = false,
 }) => {
   const [open, setOpen] = useState(false);
   const [isFocused, setIsFocus] = useState(false);
@@ -14,7 +14,11 @@ const InputPassword: React.FunctionComponent<InputPasswordProps> = ({
   return (
     <div
       className={`flex items-center bg-white rounded outline outline-1  group ${
-        isFocused ? "outline-dark ring-4 ring-light" : "outline-my-slate-200"
+        isFocused
+          ? "outline-dark ring-4 ring-light"
+          : disabled
+          ? "filter-opacity outline-none pointer-events-none"
+          : "outline-my-slate-200"
       }`}
     >
       <input

@@ -28,4 +28,8 @@
   .w-sm-screen {
     width: min(calc(100vw - 3rem), 25rem);
   }
+
+  .filter-opacity {
+    filter: opacity(0.5);
+  }
 }
