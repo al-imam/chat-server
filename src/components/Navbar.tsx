@@ -3,7 +3,7 @@ import { MessageIcon, DarkMode } from "@svg/Index";
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center h-16 bg-black bg-opacity-10 backdrop-blur-lg">
+    <nav className="flex items-center h-16 bg-black shadow bg-opacity-10 backdrop-blur-lg">
       <ul className="mx-auto w-[calc(100vw-3rem)] sm:max-w-3xl flex gap-4 ">
         <li className="mr-auto">
           <NavLink
