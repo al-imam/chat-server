@@ -12,7 +12,11 @@ export default function SingUp() {
         <InputPassword placeholder="$^#23_zqx" />
         <Button child="Login" />
         <hr className="border-gray-300 " />
-        <ShortNotice />
+        <ShortNotice
+          description="Don't have account? "
+          to="/singup"
+          text="Singup"
+        />
       </form>
     </section>
   );
