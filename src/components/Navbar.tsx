@@ -7,7 +7,7 @@ export default function Navbar() {
       <ul className="mx-auto w-[calc(100vw-3rem)] sm:max-w-3xl flex gap-4 ">
         <li className="mr-auto">
           <NavLink
-            to="/home"
+            to="/"
             className="text-my-primary max-h-[2rem] shadow focus-visible:outline-dark focus-visible:shadow"
           >
             <MessageIcon />
