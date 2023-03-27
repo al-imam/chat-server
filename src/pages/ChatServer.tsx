@@ -23,7 +23,7 @@ export default function ChatServer() {
             onBlur={() => setIsFocus(false)}
           />
           <button
-            className="p-4 border-none outline-none text-my-primary hover:text-my-hover"
+            className="flex-grow mr-3 rounded-sm outline-none text-my-primary hover:text-my-hover active:text-my-active focus-visible:outline-4 focus-visible:outline-light focus-visible:outline-offset-0"
             type="submit"
           >
             <SendMessageIcon />
