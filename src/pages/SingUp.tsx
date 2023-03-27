@@ -10,7 +10,8 @@ export default function SingUp() {
       <form className="flex flex-col gap-4 w-sm-screen sm:w-[30rem] mx-auto sm:bg-black sm:bg-opacity-5 sm:backdrop-blur-3xl rounded sm:shadow-sm sm:px-6 py-12">
         <InputText placeholder="example@gmail.com" type="email" />
         <InputPassword placeholder="$^#23_zqx" />
-        <Button child="Login" />
+        <InputPassword placeholder="retype - $^#23_zqx" />
+        <Button child="Singup" />
         <hr className="border-gray-300 " />
         <ShortNotice
           description="Already have account? "
