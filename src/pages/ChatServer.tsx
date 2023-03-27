@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Eye } from "@svg/Index";
+import { SendMessageIcon } from "@svg/Index";
 
 export default function ChatServer() {
   const [isFocus, setIsFocus] = useState(false);
@@ -16,17 +16,17 @@ export default function ChatServer() {
           <input
             className="w-full p-4 bg-white border-none rounded outline-none text-my-slate-800 outline-offset-0 caret-current placeholder:text-my-slate-300 placeholder:select-none password"
             type="text"
-            placeholder="send message"
+            placeholder="Send message"
             autoComplete="off"
             required
             onFocus={() => setIsFocus(true)}
             onBlur={() => setIsFocus(false)}
           />
           <button
-            className="relative flex items-center justify-center h-8 mx-2 bg-black bg-opacity-0 border-none rounded-full outline-none aspect-square hover:bg-opacity-5 active:bg-opacity-10 focus-visible:bg-opacity-10"
-            type="button"
+            className="p-4 border-none outline-none text-my-primary hover:text-my-hover"
+            type="submit"
           >
-            <Eye className="flex items-center justify-center w-6 h-6 text-slate-400 hover:text-slate-600" />
+            <SendMessageIcon />
           </button>
         </div>
       </form>
