@@ -22,7 +22,7 @@ export default function Message({ message = { photoURL: null, text: null } }) {
         />
       )}
       <p
-        className={`w-[fit-content] max-w-[55%] min-h-[40px] text-my-slate-800 flex items-center rounded-md p-2 ${
+        className={`w-[fit-content] max-w-[65%] md:max-w-[55%] min-h-[40px] text-my-slate-800 flex items-center rounded-md p-2 ${
           user
             ? "bg-black bg-opacity-5 backdrop-blur-lg "
             : "bg-[#0b93f6] bg-opacity-70 text-white backdrop-blur-lg"
