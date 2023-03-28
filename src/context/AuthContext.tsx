@@ -1,5 +1,7 @@
-import { createContext } from "react";
-import { User, UserCredential } from "firebase/auth";
+import { ReactNode, createContext } from "react";
+import type { User, UserCredential } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import app from "@app/initializeFirebase";
 
 export interface AuthContextValueType {
   currentUser: User | null;
@@ -8,4 +10,18 @@ export interface AuthContextValueType {
   logout: () => Promise<void>;
 }
 
-export const AuthContext = createContext<AuthContextValueType | null>(null);
+export const AuthContext = createContext<Partial<AuthContextValueType> | null>(
+  null
+);
+
+const auth = getAuth(app);
+
+export function AuthProvider({ children }: { children: ReactNode }) {
+  function singup(email: string, password: string): Promise<UserCredential> {
+    return createUserWithEmailAndPassword(auth, email, password);
+  }
+
+  return (
+    <AuthContext.Provider value={{ singup }}>{children}</AuthContext.Provider>
+  );
+}
