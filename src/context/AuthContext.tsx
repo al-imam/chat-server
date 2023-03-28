@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import app from "@app/initializeFirebase";
 
@@ -30,8 +31,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
+  function logout(): Promise<void> {
+    return signOut(auth);
+  }
+
   return (
-    <AuthContext.Provider value={{ singup, login }}>
+    <AuthContext.Provider value={{ singup, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
