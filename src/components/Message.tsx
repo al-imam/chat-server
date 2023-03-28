@@ -1,4 +1,7 @@
+import useMedia from "@app/hooks/useMedia";
+
 export default function Message({ message = { photoURL: null, text: null } }) {
+  const smell = useMedia("(min-width: 600px)");
   const { photoURL, text } = message;
 
   const user = Math.random() > 0.5 ? false : true;
@@ -9,7 +12,7 @@ export default function Message({ message = { photoURL: null, text: null } }) {
         user ? "items-start" : "flex-row-reverse items-end"
       }`}
     >
-      {user && (
+      {(user || smell) && (
         <img
           className="w-10 bg-red-200 rounded-full aspect-square"
           src={
