@@ -32,4 +32,16 @@
   .filter-opacity {
     filter: opacity(0.5);
   }
+
+  .chat-room::-webkit-scrollbar {
+    @apply w-1 bg-transparent;
+  }
+
+  .chat-room::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .chat-room::-webkit-scrollbar-thumb {
+    @apply bg-black rounded-full bg-opacity-20 backdrop-blur-lg;
+  }
 }

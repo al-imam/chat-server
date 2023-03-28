@@ -8,7 +8,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <main className="mx-auto sm:max-w-3xl">
+      <main className="mx-auto ">
         <Routes>
           <Route path="/" element={<ChatServer />} />
           <Route path="/login" element={<Login />} />

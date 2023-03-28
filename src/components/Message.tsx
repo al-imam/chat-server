@@ -5,7 +5,7 @@ export default function Message({ message = { photoURL: null, text: null } }) {
 
   return (
     <div
-      className={`flex gap-2 ${
+      className={`w-[calc(100vw-3rem)] sm:max-w-3xl mx-auto flex gap-2 ${
         rand > 0.5 ? "items-start" : "flex-row-reverse items-end"
       }`}
     >
