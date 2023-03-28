@@ -1,6 +1,11 @@
 import { ReactNode, createContext } from "react";
-import type { User, UserCredential } from "firebase/auth";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import {
+  User,
+  UserCredential,
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import app from "@app/initializeFirebase";
 
 export interface AuthContextValueType {
@@ -21,7 +26,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
 
+  function login(email: string, password: string): Promise<UserCredential> {
+    return signInWithEmailAndPassword(auth, email, password);
+  }
+
   return (
-    <AuthContext.Provider value={{ singup }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ singup, login }}>
+      {children}
+    </AuthContext.Provider>
   );
 }
