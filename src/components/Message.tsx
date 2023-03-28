@@ -33,7 +33,7 @@ export default function Message({ message = { photoURL: null, text: null } }) {
           user
             ? "bg-black bg-opacity-5"
             : "bg-[#0b93f6] bg-opacity-70 text-white"
-        } ${lngType(t) === "bangla" ? "font-mono" : "font-primary"}`}
+        } ${lngType(t) === "bangla" ? "font-bangla" : "font-primary"}`}
       >
         {t}
       </p>
