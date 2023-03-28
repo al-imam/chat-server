@@ -1,10 +1,17 @@
 import useMedia from "@app/hooks/useMedia";
+import lngType from "@app/utilitys/detectLanguage";
 
 export default function Message({ message = { photoURL: null, text: null } }) {
   const smell = useMedia("(min-width: 40rem)");
   const { photoURL, text } = message;
 
   const user = Math.random() > 0.5 ? false : true;
+  const t =
+    Math.random() > 0.5
+      ? "Hello guys how are you"
+      : Math.random() > 0.5
+      ? "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis tempore unde provident eaque quibusdam. Vero."
+      : "গুগল এমন একটি নতুন ফিচারে ইনস্টাগ্রামসহ অন্যান্য মাধ্যমের ছোট ছোট ভিডিও দেখা যাবে।";
 
   return (
     <div
@@ -22,17 +29,13 @@ export default function Message({ message = { photoURL: null, text: null } }) {
         />
       )}
       <p
-        className={`w-[fit-content] max-w-[65%] md:max-w-[55%] min-h-[40px] text-my-slate-800 flex items-center rounded-md p-2 ${
+        className={`w-[fit-content] max-w-[65%] md:max-w-[55%] min-h-[40px] text-my-slate-800 flex items-center rounded-md p-2 backdrop-blur-lg ${
           user
-            ? "bg-black bg-opacity-5 backdrop-blur-lg "
-            : "bg-[#0b93f6] bg-opacity-70 text-white backdrop-blur-lg"
-        }`}
+            ? "bg-black bg-opacity-5"
+            : "bg-[#0b93f6] bg-opacity-70 text-white"
+        } ${lngType(t) === "bangla" ? "font-mono" : "font-primary"}`}
       >
-        {Math.random() > 0.5
-          ? "Hello guys how are you"
-          : Math.random() > 0.5
-          ? "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis tempore unde provident eaque quibusdam. Vero."
-          : "গুগল এমন একটি নতুন ফিচারে ইনস্টাগ্রামসহ অন্যান্য মাধ্যমের ছোট ছোট ভিডিও দেখা যাবে।"}
+        {t}
       </p>
     </div>
   );
