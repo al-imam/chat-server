@@ -25,10 +25,6 @@
     background-repeat: no-repeat;
   }
 
-  .w-sm-screen {
-    width: min(calc(100vw - 3rem), 25rem);
-  }
-
   .filter-opacity {
     filter: opacity(0.5);
   }
@@ -47,8 +43,16 @@
 }
 
 @layer utilities {
+  :root {
+    --smell-screen-display-width: 2rem;
+  }
+
+  .w-sm-screen {
+    width: min(calc(100vw - var(--smell-screen-display-width)), 25rem);
+  }
+
   .sm-width {
-    width: calc(100vw - 3rem);
+    width: calc(100vw - var(--smell-screen-display-width));
   }
 
   .height-subtract-nav-dvh {
