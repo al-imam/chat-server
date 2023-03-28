@@ -51,6 +51,15 @@
     width: min(calc(100vw - var(--smell-screen-display-width)), 25rem);
   }
 
+  .mask-image-gradient {
+    mask-image: linear-gradient(
+      transparent,
+      black 0.1%,
+      black 99.9%,
+      transparent 100%
+    );
+  }
+
   .sm-width {
     width: calc(100vw - var(--smell-screen-display-width));
   }
