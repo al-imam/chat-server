@@ -45,3 +45,17 @@
     @apply bg-black rounded-full bg-opacity-20 backdrop-blur-lg;
   }
 }
+
+@layer utilities {
+  .sm-width {
+    width: calc(100vw - 3rem);
+  }
+
+  .height-subtract-nav-dvh {
+    height: calc(100dvh - 64px);
+  }
+
+  .height-subtract-nav-vh {
+    height: calc(100vh - 64px);
+  }
+}
