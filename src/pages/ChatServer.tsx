@@ -9,7 +9,7 @@ export default function ChatServer() {
 
   return (
     <div
-      className={`flex flex-col py-4 gap-4 supports-[height:100dvh]:h-[calc(100dvh-64px)] h-[calc(100vh-64px)] landscape:h-[calc(100vh-64px)] `}
+      className={`flex flex-col py-4 gap-4 supports-[height:100dvh]:height-subtract-nav-dvh height-subtract-nav-vh landscape:height-subtract-nav-vh `}
     >
       <div className="flex flex-col gap-6 mt-auto overflow-x-hidden overflow-y-visible chat-room">
         <Message />
@@ -35,7 +35,7 @@ export default function ChatServer() {
       </div>
       <form
         onSubmit={sendMessage}
-        className="w-[calc(100vw-3rem)] sm:max-w-3xl mx-auto "
+        className="mx-auto sm-width sm:max-w-3xl "
         noValidate={true}
       >
         <SendMessage />

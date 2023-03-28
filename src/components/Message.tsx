@@ -5,7 +5,7 @@ export default function Message({ message = { photoURL: null, text: null } }) {
 
   return (
     <div
-      className={`w-[calc(100vw-3rem)] sm:max-w-3xl mx-auto relative flex gap-2 translate-x-1 ${
+      className={`sm-width sm:max-w-3xl mx-auto relative flex gap-2 translate-x-1 ${
         rand > 0.5 ? "items-start" : "flex-row-reverse items-end"
       }`}
     >
@@ -23,7 +23,9 @@ export default function Message({ message = { photoURL: null, text: null } }) {
             : "bg-[#0b93f6] bg-opacity-70 text-white backdrop-blur-lg"
         }`}
       >
-        Hello guys how are you
+        {Math.random() > 0.5
+          ? "Hello guys how are you"
+          : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis tempore unde provident eaque quibusdam. Vero."}
       </p>
     </div>
   );
