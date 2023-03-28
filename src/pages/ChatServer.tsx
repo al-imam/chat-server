@@ -9,7 +9,7 @@ export default function ChatServer() {
 
   return (
     <div
-      className={`flex flex-col py-4 gap-4 supports-[height:100dvh]:height-subtract-nav-dvh height-subtract-nav-vh landscape:height-subtract-nav-vh `}
+      className={`flex flex-col gap-4 py-4 supports-[height:100dvh]:height-subtract-nav-dvh height-subtract-nav-vh landscape:height-subtract-nav-vh `}
     >
       <div className="flex flex-col gap-3 mt-auto overflow-x-hidden overflow-y-visible mask-image-gradient sm:gap-6 chat-room">
         <Message />
