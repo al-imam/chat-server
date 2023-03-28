@@ -10,7 +10,7 @@ export default function ChatServer() {
     <div
       className={`flex flex-col py-4 gap-4 supports-[height:100dvh]:h-[calc(100dvh-64px)] h-[calc(100vh-64px)] landscape:h-[calc(100vh-64px)] `}
     >
-      <div className="overflow-scroll w-[calc(100vw-3rem)] sm:max-w-3xl mx-auto">
+      <div className="mt-auto overflow-y-scroll overflow-x-hidden w-[calc(100vw-3rem)] sm:max-w-3xl mx-auto">
         <p className="w-[70%]">
           Tenetur consequuntur ipsam esse eius vero nesciunt voluptatem, nihil
           porro?
@@ -21,7 +21,7 @@ export default function ChatServer() {
       </div>
       <form
         onSubmit={sendMessage}
-        className="mt-auto w-[calc(100vw-3rem)] sm:max-w-3xl mx-auto "
+        className="w-[calc(100vw-3rem)] sm:max-w-3xl mx-auto "
         noValidate={true}
       >
         <SendMessage />
