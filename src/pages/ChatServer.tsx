@@ -1,4 +1,5 @@
 import SendMessage from "@app/components/SendMessage";
+import Message from "@app/components/Message";
 import { FormEvent } from "react";
 
 export default function ChatServer() {
@@ -10,14 +11,27 @@ export default function ChatServer() {
     <div
       className={`flex flex-col py-4 gap-4 supports-[height:100dvh]:h-[calc(100dvh-64px)] h-[calc(100vh-64px)] landscape:h-[calc(100vh-64px)] `}
     >
-      <div className="mt-auto overflow-y-scroll overflow-x-hidden w-[calc(100vw-3rem)] sm:max-w-3xl mx-auto">
-        <p className="w-[70%]">
-          Tenetur consequuntur ipsam esse eius vero nesciunt voluptatem, nihil
-          porro?
-        </p>
-        <p className="w-[70%]">
-          Doloremque aliquid id delectus quos nihil labore nam! Nesciunt, optio.
-        </p>
+      <div className="mt-auto flex flex-col gap-6 overflow-y-scroll overflow-x-hidden w-[calc(100vw-3rem)] sm:max-w-3xl mx-auto">
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
+        <Message />
       </div>
       <form
         onSubmit={sendMessage}
