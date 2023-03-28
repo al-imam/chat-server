@@ -1,7 +1,7 @@
 import useMedia from "@app/hooks/useMedia";
 
 export default function Message({ message = { photoURL: null, text: null } }) {
-  const smell = useMedia("(min-width: 600px)");
+  const smell = useMedia("(min-width: 40rem)");
   const { photoURL, text } = message;
 
   const user = Math.random() > 0.5 ? false : true;
@@ -30,7 +30,9 @@ export default function Message({ message = { photoURL: null, text: null } }) {
       >
         {Math.random() > 0.5
           ? "Hello guys how are you"
-          : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis tempore unde provident eaque quibusdam. Vero."}
+          : Math.random() > 0.5
+          ? "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis tempore unde provident eaque quibusdam. Vero."
+          : "গুগল এমন একটি নতুন ফিচারে ইনস্টাগ্রামসহ অন্যান্য মাধ্যমের ছোট ছোট ভিডিও দেখা যাবে।"}
       </p>
     </div>
   );
