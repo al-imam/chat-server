@@ -23,6 +23,7 @@ export default {
       },
       fontFamily: {
         primary: ["Ubuntu", ...fontFamily.sans],
+        bangla: ["Hind Siliguri", ...fontFamily.sans],
       },
     },
   },
