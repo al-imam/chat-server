@@ -8,9 +8,22 @@ export default function ChatServer() {
 
   return (
     <div
-      className={`mx-auto w-[calc(100vw-3rem)] flex flex-col sm:max-w-3xl  py-4 supports-[height:100dvh]:h-[calc(100dvh-64px)] h-[calc(100vh-64px)] landscape:h-[calc(100vh-64px)] `}
+      className={`flex flex-col py-4 gap-4 supports-[height:100dvh]:h-[calc(100dvh-64px)] h-[calc(100vh-64px)] landscape:h-[calc(100vh-64px)] `}
     >
-      <form onSubmit={sendMessage} className="mt-auto" noValidate={true}>
+      <div className="overflow-scroll w-[calc(100vw-3rem)] sm:max-w-3xl mx-auto">
+        <p className="w-[70%]">
+          Tenetur consequuntur ipsam esse eius vero nesciunt voluptatem, nihil
+          porro?
+        </p>
+        <p className="w-[70%]">
+          Doloremque aliquid id delectus quos nihil labore nam! Nesciunt, optio.
+        </p>
+      </div>
+      <form
+        onSubmit={sendMessage}
+        className="mt-auto w-[calc(100vw-3rem)] sm:max-w-3xl mx-auto "
+        noValidate={true}
+      >
         <SendMessage />
       </form>
     </div>
