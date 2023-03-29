@@ -1,9 +1,10 @@
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useEffect, useState } from "react";
 import {
   User,
   UserCredential,
   createUserWithEmailAndPassword,
   getAuth,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
@@ -21,7 +22,15 @@ export const AuthContext = createContext<AuthContextValueType | null>(null);
 const auth = getAuth(app);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const destroy = onAuthStateChanged(auth, (user: User | null) => {
+      setCurrentUser(user);
+    });
+
+    return destroy;
+  }, []);
 
   function singup(email: string, password: string): Promise<UserCredential> {
     return createUserWithEmailAndPassword(auth, email, password);
