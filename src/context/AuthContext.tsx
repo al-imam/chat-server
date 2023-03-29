@@ -10,10 +10,18 @@ import {
 } from "firebase/auth";
 import app from "@app/initializeFirebase";
 
+type sing = ({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) => Promise<UserCredential>;
+
 export interface AuthContextValueType {
   currentUser: User | null;
-  singup: (email: string, password: string) => Promise<UserCredential>;
-  login: (email: string, password: string) => Promise<UserCredential>;
+  singup: sing;
+  login: sing;
   logout: () => Promise<void>;
 }
 
@@ -34,11 +42,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return destroy;
   }, []);
 
-  function singup(email: string, password: string): Promise<UserCredential> {
+  function singup({
+    email,
+    password,
+  }: {
+    email: string;
+    password: string;
+  }): Promise<UserCredential> {
     return createUserWithEmailAndPassword(auth, email, password);
   }
 
-  function login(email: string, password: string): Promise<UserCredential> {
+  function login({
+    email,
+    password,
+  }: {
+    email: string;
+    password: string;
+  }): Promise<UserCredential> {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
