@@ -11,6 +11,7 @@ export default defineConfig({
       "@components": path.resolve(__dirname, "src/components"),
       "@pages": path.resolve(__dirname, "src/pages"),
       "@svg": path.resolve(__dirname, "src/svg"),
+      "@context": path.resolve(__dirname, "src/context"),
     },
   },
 });

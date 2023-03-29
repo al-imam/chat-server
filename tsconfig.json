@@ -19,7 +19,8 @@
       "@app/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@pages/*": ["./src/pages/*"],
-      "@svg/*": ["./src/svg/*"]
+      "@svg/*": ["./src/svg/*"],
+      "@context/*": ["./src/context/*"]
     }
   },
   "include": ["src"],
