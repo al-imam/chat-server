@@ -10,7 +10,7 @@ const InputText: React.FunctionComponent<
       React.InputHTMLAttributes<HTMLInputElement>,
       HTMLInputElement
     >,
-    "className" | "required"
+    "className" | "required" | "autoComplete"
   >
 > = ({ ...rest }) => (
   <input
