@@ -23,10 +23,12 @@ const auth = getAuth(app);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [wait, setWait] = useState(true);
 
   useEffect(() => {
     const destroy = onAuthStateChanged(auth, (user: User | null) => {
       setCurrentUser(user);
+      setWait(false);
     });
 
     return destroy;
@@ -46,7 +48,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   return (
     <AuthContext.Provider value={{ singup, login, logout, currentUser }}>
-      {children}
+      {wait || children}
     </AuthContext.Provider>
   );
 }
