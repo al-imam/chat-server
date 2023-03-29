@@ -1,4 +1,4 @@
-import { ReactNode, createContext } from "react";
+import { ReactNode, createContext, useState } from "react";
 import {
   User,
   UserCredential,
@@ -16,13 +16,13 @@ export interface AuthContextValueType {
   logout: () => Promise<void>;
 }
 
-export const AuthContext = createContext<Partial<AuthContextValueType> | null>(
-  null
-);
+export const AuthContext = createContext<AuthContextValueType | null>(null);
 
 const auth = getAuth(app);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
+  const [currentUser, setCurrentUser] = useState(null);
+
   function singup(email: string, password: string): Promise<UserCredential> {
     return createUserWithEmailAndPassword(auth, email, password);
   }
@@ -36,7 +36,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <AuthContext.Provider value={{ singup, login, logout }}>
+    <AuthContext.Provider value={{ singup, login, logout, currentUser }}>
       {children}
     </AuthContext.Provider>
   );
