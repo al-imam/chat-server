@@ -8,17 +8,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        light: "#6169ff33",
-        dark: "#bac9ff",
-        my: {
-          primary: "hsl(341deg 66% 67%)",
-          hover: "hsl(341deg 66% 60%)",
-          active: "hsl(335deg 51% 33%)",
-          slate: {
-            300: slate[300],
-            200: slate[200],
-            800: slate[800],
-          },
+        light: "hsl(var(--outline-light))",
+        dark: "hsl(var(--outline-dark))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          hover: "hsl(var(--primary-hover))",
+          active: "hsl(var(--primary-active))",
+        },
+        fg: {
+          300: slate[300],
+          200: slate[200],
+          DEFAULT: slate[800],
         },
       },
       fontFamily: {
