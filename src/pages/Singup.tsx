@@ -3,15 +3,10 @@ import InputText from "@app/components/InputText";
 import Button from "@app/components/Button";
 import ShortNotice from "@app/components/ShortNotice";
 import useAuth from "@app/hooks/useAuth";
-import { FormEvent, useReducer } from "react";
+import { FormEvent } from "react";
+import useStore from "@app/hooks/useStore";
 
-interface ElementsType {
-  email: HTMLInputElement;
-  password: HTMLInputElement;
-  cp: HTMLInputElement;
-}
-
-interface InitialState {
+export interface InitialState {
   email: string;
   password: string;
   cp: string;
@@ -24,10 +19,8 @@ const initialState: InitialState = {
 };
 
 export default function Singup() {
-  const [{ email, password, cp }, updateState] = useReducer(
-    (prev: InitialState, next: Partial<InitialState>) => ({ ...prev, ...next }),
-    initialState
-  );
+  const [{ email, password, cp }, updateState] = useStore(initialState);
+
   const { singup } = useAuth();
 
   async function singupUser(event: FormEvent<HTMLFormElement>) {
