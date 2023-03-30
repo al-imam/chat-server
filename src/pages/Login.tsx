@@ -29,8 +29,17 @@ export default function Login() {
         onSubmit={loginUser}
         className="flex flex-col gap-4 py-12 mx-auto rounded w-sm-screen sm:w-[30rem] sm:bg-black sm:bg-opacity-5 sm:backdrop-blur-3xl sm:shadow-sm sm:px-6"
       >
-        <InputText placeholder="example@gmail.com" type="email" />
-        <InputPassword placeholder="$^#23_zqx" />
+        <InputText
+          value={email}
+          onChange={(event) => updateStore({ email: event.target.value })}
+          placeholder="example@gmail.com"
+          type="email"
+        />
+        <InputPassword
+          value={password}
+          onChange={(event) => updateStore({ password: event.target.value })}
+          placeholder="$^#23_zqx"
+        />
         <Button child="Login" />
         <hr className="border-gray-300 " />
         <ShortNotice
