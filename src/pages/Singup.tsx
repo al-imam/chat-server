@@ -32,6 +32,8 @@ export default function Singup() {
 
   async function singupUser(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    await singup({ email, password });
+    updateState(initialState);
   }
 
   return (
