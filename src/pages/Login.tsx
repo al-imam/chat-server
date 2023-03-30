@@ -4,6 +4,7 @@ import Button from "@app/components/Button";
 import ShortNotice from "@app/components/ShortNotice";
 import { FormEvent } from "react";
 import useStore from "@app/hooks/useStore";
+import useAuth from "@app/hooks/useAuth";
 
 interface InitialState {
   email: string;
@@ -18,8 +19,12 @@ const initialState: InitialState = {
 export default function Login() {
   const [{ email, password }, updateStore] = useStore(initialState);
 
-  function loginUser(event: FormEvent<HTMLFormElement>) {
+  const { login } = useAuth();
+
+  async function loginUser(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    await login({ email, password });
+    updateStore(initialState);
   }
 
   return (
