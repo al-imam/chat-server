@@ -6,7 +6,7 @@ import useAuth from "@app/hooks/useAuth";
 import { FormEvent } from "react";
 import useStore from "@app/hooks/useStore";
 
-export interface InitialState {
+interface InitialState {
   email: string;
   password: string;
   cp: string;
@@ -19,14 +19,14 @@ const initialState: InitialState = {
 };
 
 export default function Singup() {
-  const [{ email, password, cp }, updateState] = useStore(initialState);
+  const [{ email, password, cp }, updateStore] = useStore(initialState);
 
   const { singup } = useAuth();
 
   async function singupUser(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     await singup({ email, password });
-    updateState(initialState);
+    updateStore(initialState);
   }
 
   return (
@@ -38,20 +38,20 @@ export default function Singup() {
       >
         <InputText
           value={email}
-          onChange={(event) => updateState({ email: event.target.value })}
+          onChange={(event) => updateStore({ email: event.target.value })}
           placeholder="example@gmail.com"
           type="email"
           name="email"
         />
         <InputPassword
           value={password}
-          onChange={(event) => updateState({ password: event.target.value })}
+          onChange={(event) => updateStore({ password: event.target.value })}
           placeholder="$^#23_zqx"
           name="password"
         />
         <InputPassword
           value={cp}
-          onChange={(event) => updateState({ cp: event.target.value })}
+          onChange={(event) => updateStore({ cp: event.target.value })}
           placeholder="retype - $^#23_zqx"
           name="cp"
         />

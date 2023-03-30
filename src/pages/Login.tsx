@@ -3,8 +3,21 @@ import InputText from "@app/components/InputText";
 import Button from "@app/components/Button";
 import ShortNotice from "@app/components/ShortNotice";
 import { FormEvent } from "react";
+import useStore from "@app/hooks/useStore";
+
+interface InitialState {
+  email: string;
+  password: string;
+}
+
+const initialState: InitialState = {
+  email: "",
+  password: "",
+};
 
 export default function Login() {
+  const [{ email, password }, updateStore] = useStore(initialState);
+
   function loginUser(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
   }
