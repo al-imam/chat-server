@@ -29,9 +29,9 @@ export default function Message({ message = { photoURL: null, text: null } }) {
         />
       )}
       <p
-        className={`w-[fit-content] max-w-[65%] md:max-w-[55%] min-h-[40px] text-my-slate-800 flex items-center rounded-md p-2 backdrop-blur-lg ${
+        className={`w-[fit-content] max-w-[65%] md:max-w-[55%] min-h-[40px] flex items-center rounded-md p-2 backdrop-blur-lg ${
           user
-            ? "bg-black bg-opacity-5"
+            ? "bg-black bg-opacity-5 text-fg"
             : "bg-[#0b93f6] bg-opacity-70 text-white"
         } ${lngType(t) === "bangla" ? "font-bangla" : "font-primary"}`}
       >

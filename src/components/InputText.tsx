@@ -14,7 +14,7 @@ const InputText: React.FunctionComponent<
   >
 > = ({ ...rest }) => (
   <input
-    className="p-4 bg-white border-none rounded outline-none text-my-slate-700 outline-offset-0 caret-current placeholder:text-my-slate-300 placeholder:select-none outline-1 enabled:outline-my-slate-200 enabled:focus:outline-dark focus:ring-4 focus:ring-light disabled:bg-opacity-70 text"
+    className="p-4 bg-white border-none rounded outline-none text-fg outline-offset-0 caret-current placeholder:text-fg-300 placeholder:select-none outline-1 enabled:outline-fg-200 enabled:focus:outline-dark focus:ring-4 focus:ring-light disabled:bg-opacity-70 text"
     autoComplete="off"
     required
     {...rest}

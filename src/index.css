@@ -4,6 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --outline-dark: 227 100% 86%;
+    --outline-light: 237 100% 69% / 0.2;
+    --primary: 341deg 66% 67%;
+    --primary-hover: 341deg 66% 60%;
+    --primary-active: 335deg 51% 33%;
+  }
+}
+
 @layer components {
   .mix-gradient {
     --opacity: 10%;

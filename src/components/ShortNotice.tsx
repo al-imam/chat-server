@@ -12,11 +12,11 @@ export default function ShortNotice({
   text,
 }: ShortNoticeProps) {
   return (
-    <div className="text-base text-center text-my-slate-800">
+    <div className="text-base text-center text-fg">
       {description}
       <Link
         to={to}
-        className="rounded outline-none text-my-primary hover:underline outline-offset-0 focus-visible:outline-1 focus-visible:outline-dark focus-visible:ring focus-visible:ring-light"
+        className="rounded outline-none text-primary hover:underline outline-offset-0 focus-visible:outline-1 focus-visible:outline-dark focus-visible:ring focus-visible:ring-light"
       >
         {text}
       </Link>

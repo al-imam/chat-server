@@ -23,11 +23,11 @@ const InputPassword: React.FunctionComponent<
           ? "outline-dark ring-4 ring-light"
           : rest.disabled
           ? "filter-opacity outline-none pointer-events-none"
-          : "outline-my-slate-200"
+          : "outline-fg-200"
       }`}
     >
       <input
-        className="w-full p-4 bg-white border-none rounded outline-none text-my-slate-800 outline-offset-0 caret-current placeholder:text-my-slate-300 placeholder:select-none password"
+        className="w-full p-4 bg-white border-none rounded outline-none text-fg outline-offset-0 caret-current placeholder:text-fg-300 placeholder:select-none password"
         type={open ? "text" : "password"}
         autoComplete="off"
         required
