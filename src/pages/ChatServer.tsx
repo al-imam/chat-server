@@ -1,9 +1,14 @@
 import SendMessage from "@app/components/SendMessage";
 import Message from "@app/components/Message";
 import { FormEvent } from "react";
+import useRealTimeUpdates from "@app/hooks/useRealTimeUpdates";
 
 export default function ChatServer() {
-  function sendMessage(evt: FormEvent<HTMLFormElement>) {
+  const { messages, setNewMessage } = useRealTimeUpdates({
+    reference: "message",
+  });
+
+  async function sendMessage(evt: FormEvent<HTMLFormElement>) {
     evt.preventDefault();
   }
 
