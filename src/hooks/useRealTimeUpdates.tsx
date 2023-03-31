@@ -17,7 +17,7 @@ interface Argument {
   limit?: number;
 }
 
-interface DocumentType {
+export interface DocumentType {
   message: string;
   uid: string;
   id: string;
