@@ -10,6 +10,10 @@ export default function ChatServer() {
 
   async function sendMessage(evt: FormEvent<HTMLFormElement>) {
     evt.preventDefault();
+    /* @ts-ignore */
+    const messageInput = evt.target.elements.message;
+    await setNewMessage({ message: messageInput.value });
+    messageInput.value = "";
   }
 
   return (
