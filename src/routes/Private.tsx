@@ -1,15 +1,14 @@
 import useAuth from "@app/hooks/useAuth";
-import { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 
 interface Props {
   to: string;
-  children: ReactNode;
+  element: JSX.Element;
 }
 
-function Private({ children, to }: Props): ReactNode | null {
+function Private({ element, to }: Props): JSX.Element | null {
   const { currentUser } = useAuth();
-  return currentUser === null ? <Navigate to={to} replace={true} /> : children;
+  return currentUser === null ? <Navigate to={to} replace={true} /> : element;
 }
 
 export default Private;

@@ -4,12 +4,12 @@ import { Navigate } from "react-router-dom";
 
 interface Props {
   to: string;
-  children: ReactNode;
+  element: JSX.Element;
 }
 
-function Public({ children, to }: Props): ReactNode | null {
+function Public({ element, to }: Props): JSX.Element | null {
   const { currentUser } = useAuth();
-  return currentUser !== null ? <Navigate to={to} replace={true} /> : children;
+  return currentUser !== null ? <Navigate to={to} replace={true} /> : element;
 }
 
 export default Public;
