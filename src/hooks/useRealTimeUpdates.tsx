@@ -25,10 +25,10 @@ interface DocumentType {
 const db = getFirestore(app);
 
 function useRealTimeUpdates({ reference, limit = 30 }: Argument) {
-  const [message, setMessage] = useState([]);
+  const [messages, setMessages] = useState<DocumentType[]>([]);
 
   useEffect(() => {
-    onSnapshot(
+    const destroy = onSnapshot(
       query(
         collection(db, reference),
         orderBy("createdAt"),
@@ -48,5 +48,11 @@ function useRealTimeUpdates({ reference, limit = 30 }: Argument) {
         setMessages(updatedData);
       }
     );
+
+    return destroy;
   }, [reference]);
+
+  return messages;
 }
+
+export default useRealTimeUpdates;
