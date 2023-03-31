@@ -15,6 +15,7 @@ function SendMessageForm() {
 
   async function sendMessage(evt: FormEvent<HTMLFormElement>) {
     evt.preventDefault();
+    if (message.trim() === "") return updateStore(initialValue);
     updateStore(initialValue);
     await setNewMessage({ message });
   }
@@ -41,8 +42,9 @@ function SendMessageForm() {
           required
         />
         <button
-          className="flex-grow mr-3 rounded-sm outline-none text-primary hover:text-primary-hover active:text-primary-active focus-visible:outline-4 focus-visible:outline-light focus-visible:outline-offset-0"
+          className="flex-grow mr-3 rounded-sm outline-none text-primary hover:enabled:text-primary-hover active:enabled:text-primary-active focus-visible:outline-4 focus-visible:outline-light focus-visible:outline-offset-0 disabled:opacity-50"
           type="submit"
+          disabled={!message}
         >
           <SendMessageIcon />
         </button>
