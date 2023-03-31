@@ -1,12 +1,14 @@
 import SendMessage from "@app/components/SendMessage";
 import Message from "@app/components/Message";
-import { FormEvent } from "react";
+import { FormEvent, useEffect, useRef } from "react";
 import useRealTimeUpdates from "@app/hooks/useRealTimeUpdates";
 
 export default function ChatServer() {
   const { messages, setNewMessage } = useRealTimeUpdates({
     reference: "message",
   });
+
+  const scrollToMe = useRef<HTMLSpanElement | null>(null);
 
   async function sendMessage(evt: FormEvent<HTMLFormElement>) {
     evt.preventDefault();
@@ -16,6 +18,10 @@ export default function ChatServer() {
     messageInput.value = "";
   }
 
+  useEffect(() => {
+    scrollToMe.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
     <div
       className={`flex flex-col gap-4 py-4 supports-[height:100dvh]:height-subtract-nav-dvh height-subtract-nav-vh landscape:height-subtract-nav-vh `}
@@ -24,6 +30,7 @@ export default function ChatServer() {
         {messages.map((message) => (
           <Message key={message.id} {...message} />
         ))}
+        <span ref={scrollToMe}></span>
       </div>
       <form
         onSubmit={sendMessage}
