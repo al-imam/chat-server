@@ -14,6 +14,14 @@ interface Argument {
   limit?: number;
 }
 
+interface DocumentType {
+  message: string;
+  uid: string;
+  id: string;
+  photoURL: string;
+  createdAt: Date;
+}
+
 const db = getFirestore(app);
 
 function useRealTimeUpdates({ reference, limit = 30 }: Argument) {
