@@ -28,7 +28,7 @@ export default function Login() {
   }
 
   return (
-    <section className="mx-auto mt-16 rounded w-sm-screen sm:w-[30rem] sm:bg-primary/5 sm:backdrop-blur-3xl sm:shadow-sm sm:px-6 sm:py-12">
+    <section className="mx-auto sm:mb-16 mt-16 rounded w-sm-screen sm:w-[30rem] sm:bg-primary/5 sm:backdrop-blur-3xl sm:shadow-sm sm:px-6 sm:py-12">
       <h1 className="text-4xl sm:mb-12 text-fg">Login</h1>
       <form
         onSubmit={loginUser}
