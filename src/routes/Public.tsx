@@ -7,9 +7,9 @@ interface Props {
   children: ReactNode;
 }
 
-function Private({ children, to }: Props): ReactNode | null {
+function Public({ children, to }: Props): ReactNode | null {
   const { currentUser } = useAuth();
-  return currentUser === null ? <Navigate to={to} replace={true} /> : children;
+  return currentUser !== null ? <Navigate to={to} replace={true} /> : children;
 }
 
-export default Private;
+export default Public;
