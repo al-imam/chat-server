@@ -35,7 +35,17 @@ function useRealTimeUpdates({ reference, limit = 30 }: Argument) {
         limitToLast(limit)
       ),
       (snapshot) => {
-        console.log(snapshot);
+        const updatedData = snapshot.docs.map((snap) => {
+          const { uid, photoURL, createdAt, message } = snap.data();
+          return {
+            message,
+            id: snap.id,
+            uid,
+            photoURL,
+            createdAt: new Date(createdAt.seconds * 1000),
+          } as DocumentType;
+        });
+        setMessages(updatedData);
       }
     );
   }, [reference]);
