@@ -1,4 +1,5 @@
 import app from "@app/initializeFirebase";
+import useAuth from "@app/hooks/useAuth";
 import { useState, useEffect } from "react";
 import {
   collection,
@@ -7,6 +8,8 @@ import {
   orderBy,
   limitToLast,
   onSnapshot,
+  addDoc,
+  serverTimestamp,
 } from "firebase/firestore";
 
 interface Argument {
@@ -26,6 +29,7 @@ const db = getFirestore(app);
 
 function useRealTimeUpdates({ reference, limit = 30 }: Argument) {
   const [messages, setMessages] = useState<DocumentType[]>([]);
+  const { currentUser } = useAuth();
 
   useEffect(() => {
     const destroy = onSnapshot(
@@ -37,12 +41,13 @@ function useRealTimeUpdates({ reference, limit = 30 }: Argument) {
       (snapshot) => {
         const updatedData = snapshot.docs.map((snap) => {
           const { uid, photoURL, createdAt, message } = snap.data();
+
           return {
             message,
             id: snap.id,
             uid,
             photoURL,
-            createdAt: new Date(createdAt.seconds * 1000),
+            createdAt: new Date(createdAt * 1000),
           } as DocumentType;
         });
         setMessages(updatedData);
@@ -52,7 +57,18 @@ function useRealTimeUpdates({ reference, limit = 30 }: Argument) {
     return destroy;
   }, [reference]);
 
-  return messages;
+  function setNewMessage({ message }: Pick<DocumentType, "message">) {
+    if (currentUser === null) return;
+    const ref = collection(db, reference);
+    return addDoc(ref, {
+      uid: currentUser.uid,
+      message,
+      photoURL: currentUser.photoURL,
+      createdAt: serverTimestamp(),
+    });
+  }
+
+  return { messages, setNewMessage };
 }
 
 export default useRealTimeUpdates;
