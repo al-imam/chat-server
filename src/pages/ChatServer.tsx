@@ -1,22 +1,15 @@
 import SendMessage from "@app/components/SendMessage";
 import Message from "@app/components/Message";
-import { FormEvent, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import useRealTimeUpdates from "@app/hooks/useRealTimeUpdates";
+import SendMessageForm from "@app/components/SendMessageForm";
 
 export default function ChatServer() {
-  const { messages, setNewMessage } = useRealTimeUpdates({
+  const messages = useRealTimeUpdates({
     reference: "message",
   });
 
   const scrollToMe = useRef<HTMLSpanElement | null>(null);
-
-  async function sendMessage(evt: FormEvent<HTMLFormElement>) {
-    evt.preventDefault();
-    /* @ts-ignore */
-    const messageInput = evt.target.elements.message;
-    await setNewMessage({ message: messageInput.value });
-    messageInput.value = "";
-  }
 
   useEffect(() => {
     scrollToMe.current?.scrollIntoView({ behavior: "smooth" });
@@ -32,13 +25,7 @@ export default function ChatServer() {
         ))}
         <span ref={scrollToMe}></span>
       </div>
-      <form
-        onSubmit={sendMessage}
-        className="mx-auto sm-width sm:max-w-3xl "
-        noValidate={true}
-      >
-        <SendMessage name="message" placeholder="Send message" type="text" />
-      </form>
+      <SendMessageForm />
     </div>
   );
 }
