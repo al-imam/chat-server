@@ -20,10 +20,10 @@ const InputPassword: React.FunctionComponent<
     <div
       className={`flex items-center bg-white rounded outline outline-1  group ${
         isFocused
-          ? "outline-dark ring-4 ring-light"
+          ? "outline-dark dark:outline-transparent ring-4 ring-light"
           : rest.disabled
           ? "filter-opacity outline-none pointer-events-none"
-          : "outline-fg-200"
+          : "outline-fg-200 dark:outline-transparent"
       }`}
     >
       <input
