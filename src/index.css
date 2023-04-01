@@ -17,7 +17,7 @@
 @layer components {
   .mix-gradient {
     --opacity: 10%;
-    background: linear-gradient(
+    background-image: linear-gradient(
         196deg,
         hsl(306deg 100% 50% / calc(var(--opacity) / 2)),
         rgba(255, 0, 0, 0) 45.71%
@@ -33,6 +33,48 @@
         rgba(0, 0, 255, 0) 70.71%
       );
     background-repeat: no-repeat;
+  }
+
+  .dark .mix-gradient {
+    background-color: theme(colors.slate.900);
+    background-image: radial-gradient(
+        at 34% 41%,
+        hsla(197, 23%, 14%, 0.26) 0px,
+        transparent 50%
+      ),
+      radial-gradient(at 60% 6%, hsla(289, 14%, 10%, 0.37) 0px, transparent 50%),
+      radial-gradient(at 16% 14%, hsla(343, 5%, 10%, 0.25) 0px, transparent 50%),
+      radial-gradient(at 77% 1%, hsla(79, 11%, 8%, 0.29) 0px, transparent 50%),
+      radial-gradient(at 24% 6%, hsla(0, 7%, 6%, 0.4) 0px, transparent 50%),
+      radial-gradient(at 79% 24%, hsla(341, 23%, 7%, 0.29) 0px, transparent 50%);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .mix-gradient {
+      background-color: theme(colors.slate.900);
+      background-image: radial-gradient(
+          at 34% 41%,
+          hsla(197, 23%, 14%, 0.26) 0px,
+          transparent 50%
+        ),
+        radial-gradient(
+          at 60% 6%,
+          hsla(289, 14%, 10%, 0.37) 0px,
+          transparent 50%
+        ),
+        radial-gradient(
+          at 16% 14%,
+          hsla(343, 5%, 10%, 0.25) 0px,
+          transparent 50%
+        ),
+        radial-gradient(at 77% 1%, hsla(79, 11%, 8%, 0.29) 0px, transparent 50%),
+        radial-gradient(at 24% 6%, hsla(0, 7%, 6%, 0.4) 0px, transparent 50%),
+        radial-gradient(
+          at 79% 24%,
+          hsla(341, 23%, 7%, 0.29) 0px,
+          transparent 50%
+        );
+    }
   }
 
   .filter-opacity {
