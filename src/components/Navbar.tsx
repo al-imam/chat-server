@@ -1,15 +1,30 @@
 import { NavLink } from "react-router-dom";
 import { MessageIcon, DarkMode, LightMode } from "@svg/Index";
 import NavAction from "@app/components/NavAction";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
 
   function changeTheme() {
-    setTheme(theme === "dark" ? "light" : "dark");
-    document.documentElement.classList.toggle("dark");
+    const t = theme === "dark" ? "light" : "dark";
+    localStorage.setItem("chat-server-theme", t);
+    setTheme(t);
+    if (t === "dark") {
+      return document.documentElement.classList.add("dark");
+    }
+    document.documentElement.classList.remove("dark");
   }
+  useEffect(() => {
+    const t = localStorage.getItem("chat-server-theme") as "dark" | "light";
+    if (t) {
+      setTheme(t);
+    }
+    if (t === "dark") {
+      return document.documentElement.classList.add("dark");
+    }
+    document.documentElement.classList.remove("dark");
+  }, []);
 
   return (
     <nav className="flex items-center h-16 bg-black/10 dark:bg-white/5 shadow backdrop-blur-lg">
@@ -28,9 +43,9 @@ export default function Navbar() {
             className="border-none rounded outline-none max-h-[2rem] text-fg outline-offset-0 focus-visible:outline-1 focus-visible:outline-dark focus-visible:ring focus-visible:ring-light"
           >
             {theme === "dark" ? (
-              <DarkMode className="scale-90" />
+              <LightMode className="scale-90 text-slate-200" />
             ) : (
-              <LightMode className="text-slate-200" />
+              <DarkMode className="scale-90" />
             )}
           </button>
         </li>
