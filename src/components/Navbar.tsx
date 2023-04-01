@@ -1,8 +1,15 @@
 import { NavLink } from "react-router-dom";
-import { MessageIcon, DarkMode } from "@svg/Index";
+import { MessageIcon, DarkMode, LightMode } from "@svg/Index";
 import NavAction from "@app/components/NavAction";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
+  function changeTheme() {
+    setTheme(theme === "dark" ? "light" : "dark");
+  }
+
   return (
     <nav className="flex items-center h-16 bg-black/10 shadow backdrop-blur-lg">
       <ul className="flex gap-4 mx-auto sm-width sm:max-w-3xl ">
@@ -15,8 +22,15 @@ export default function Navbar() {
           </NavLink>
         </li>
         <li className="max-h-[2rem]">
-          <button className="border-none rounded outline-none max-h-[2rem] text-fg outline-offset-0 focus-visible:outline-1 focus-visible:outline-dark focus-visible:ring focus-visible:ring-light">
-            <DarkMode className="scale-90" />
+          <button
+            onClick={changeTheme}
+            className="border-none rounded outline-none max-h-[2rem] text-fg outline-offset-0 focus-visible:outline-1 focus-visible:outline-dark focus-visible:ring focus-visible:ring-light"
+          >
+            {theme === "dark" ? (
+              <DarkMode className="scale-90" />
+            ) : (
+              <LightMode />
+            )}
           </button>
         </li>
         <NavAction />
