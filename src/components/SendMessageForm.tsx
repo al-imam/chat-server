@@ -27,8 +27,10 @@ function SendMessageForm() {
       noValidate={true}
     >
       <div
-        className={`flex items-center bg-white rounded outline outline-1  group ${
-          isFocus ? "outline-dark ring-4 ring-light" : "outline-fg-200"
+        className={`flex items-center bg-white rounded outline dark:outline-transparent outline-1  group ${
+          isFocus
+            ? "outline-dark dark:outline-transparent ring-4 ring-light"
+            : "outline-fg-200"
         }`}
       >
         <input
