@@ -8,6 +8,7 @@ export default function Navbar() {
 
   function changeTheme() {
     setTheme(theme === "dark" ? "light" : "dark");
+    document.documentElement.classList.toggle("dark");
   }
 
   return (

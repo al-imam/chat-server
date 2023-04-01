@@ -27,7 +27,9 @@ export default function Message({ message, photoURL, uid }: DocumentType) {
       )}
       <p
         className={`w-[fit-content] max-w-[65%] md:max-w-[55%] min-h-[40px] flex items-center rounded-md p-2 backdrop-blur-lg ${
-          send ? "bg-black/5 text-fg" : "bg-[#0b93f6]/70 text-white"
+          send
+            ? "bg-black/5 dark:bg-white/5 text-fg dark:text-slate-50"
+            : "bg-[#0b93f6]/70 dark:bg-[#0b93f6]/90 text-white"
         } ${lngType(message) === "bangla" ? "font-bangla" : "font-primary"}`}
       >
         {message}
