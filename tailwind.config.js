@@ -16,10 +16,12 @@ export default {
           active: "hsl(var(--primary-active))",
         },
         fg: {
-          300: slate[300],
-          200: slate[200],
-          DEFAULT: slate[800],
+          300: "var(--fg-300)",
+          200: "var(--fg-200)",
+          DEFAULT: "var(--fg)",
         },
+        white: "hsl(var(--white))",
+        black: "hsl(var(--black))",
       },
       fontFamily: {
         primary: ["Ubuntu", ...fontFamily.sans],

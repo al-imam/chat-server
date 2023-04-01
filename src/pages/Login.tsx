@@ -32,7 +32,7 @@ export default function Login() {
       <h1 className="text-4xl sm:mb-12 text-fg">Login</h1>
       <form
         onSubmit={loginUser}
-        className="flex flex-col gap-4 py-12 mx-auto rounded w-sm-screen sm:w-[30rem] sm:bg-black sm:bg-opacity-5 sm:backdrop-blur-3xl sm:shadow-sm sm:px-6"
+        className="flex flex-col gap-4 py-12 mx-auto rounded w-sm-screen sm:w-[30rem] sm:bg-black/5 sm:backdrop-blur-3xl sm:shadow-sm sm:px-6"
       >
         <InputText
           value={email}

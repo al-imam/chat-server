@@ -11,6 +11,11 @@
     --primary: 341deg 66% 67%;
     --primary-hover: 341deg 66% 60%;
     --primary-active: 335deg 51% 33%;
+    --fg: theme(colors.slate.800);
+    --fg-200: theme(colors.slate.200);
+    --fg-300: theme(colors.slate.300);
+    --white: 0 0% 100%;
+    --black: 0 0% 0%;
   }
 }
 
@@ -90,7 +95,7 @@
   }
 
   .chat-room::-webkit-scrollbar-thumb {
-    @apply bg-black rounded-full bg-opacity-20 backdrop-blur-lg;
+    @apply rounded-full bg-black/40 backdrop-blur-lg;
   }
 }
 

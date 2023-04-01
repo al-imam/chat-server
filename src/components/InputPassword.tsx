@@ -36,7 +36,7 @@ const InputPassword: React.FunctionComponent<
         {...rest}
       />
       <button
-        className="relative flex items-center justify-center h-8 mx-2 bg-black bg-opacity-0 border-none rounded-full outline-none aspect-square hover:bg-opacity-5 active:bg-opacity-10 focus-visible:bg-opacity-10"
+        className="relative flex items-center justify-center h-8 mx-2 bg-black/0  border-none rounded-full outline-none aspect-square hover:bg-black/5 active:bg-black/10 focus-visible:bg-black/10"
         type="button"
         onClick={() => setOpen((p) => !p)}
       >
