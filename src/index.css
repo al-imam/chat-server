@@ -129,4 +129,12 @@
   .height-subtract-nav-vh {
     height: calc(100vh - 64px);
   }
+
+  .after-element::after {
+    content: "";
+    position: absolute;
+    inset: 0.5rem;
+    background-color: rgb(255, 255, 255);
+    z-index: -1;
+  }
 }

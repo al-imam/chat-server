@@ -17,7 +17,7 @@ export default function Navbar() {
         <li className="mr-auto">
           <NavLink
             to="/"
-            className="shadow text-primary max-h-[2rem] focus-visible:outline-dark focus-visible:shadow"
+            className="relative shadow text-primary max-h-[2rem] focus-visible:outline-dark focus-visible:shadow after-element"
           >
             <MessageIcon />
           </NavLink>
