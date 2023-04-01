@@ -10,7 +10,11 @@ export default {
     extend: {
       colors: {
         light: "hsl(var(--outline-light))",
-        dark: "hsl(var(--outline-dark))",
+        dark: {
+          DEFAULT: "hsl(var(--outline-dark))",
+          1: "hsl(var(--outline-dark-d))",
+        },
+
         primary: {
           DEFAULT: "hsl(var(--primary))",
           hover: "hsl(var(--primary-hover))",

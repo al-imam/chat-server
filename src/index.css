@@ -7,6 +7,7 @@
 @layer base {
   :root {
     --outline-dark: 227 100% 86%;
+    --outline-dark-d: 227 100% 67%;
     --outline-light: 237 100% 69% / 0.2;
     --primary: 341deg 66% 67%;
     --primary-hover: 341deg 66% 60%;
