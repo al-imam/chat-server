@@ -30,7 +30,7 @@ export default function Navbar() {
             {theme === "dark" ? (
               <DarkMode className="scale-90" />
             ) : (
-              <LightMode />
+              <LightMode className="text-slate-200" />
             )}
           </button>
         </li>
