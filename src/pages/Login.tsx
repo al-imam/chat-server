@@ -48,7 +48,7 @@ export default function Login() {
           placeholder="$^#23_zqx"
         />
         <Button child="Login" />
-        <hr className="border-gray-300 " />
+        <hr className="border-gray-300 dark:border-gray-600 " />
         <ShortNotice
           description="Don't have account? "
           to="/singup"
