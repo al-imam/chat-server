@@ -11,8 +11,6 @@ export default function Navbar() {
     ? "dark"
     : "light";
 
-  console.log(colorTheme);
-
   function changeTheme() {
     switch (theme) {
       case "light":
