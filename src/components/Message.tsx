@@ -3,20 +3,18 @@ import lngType from "@app/utilitys/detectLanguage";
 import { DocumentType } from "@app/hooks/useRealTimeUpdates";
 import useAuth from "@app/hooks/useAuth";
 
-function getRandomColor() {
-  const colorWhile = Math.floor(Math.random() * 360);
-  return {
-    bg: `hsl(${colorWhile} 100% 75%)`,
-    fg: `hsl(${colorWhile} 100% 10%)`,
-  };
-}
-
 export default function Message({ message, photoURL, uid }: DocumentType) {
   const smell = useMedia("(min-width: 40rem)");
 
   const { currentUser } = useAuth();
 
   const send = currentUser?.uid === uid ? false : true;
+
+  const { bg, fg, character } = JSON.parse(photoURL) as {
+    bg: string;
+    fg: string;
+    character: string;
+  };
 
   return (
     <div
@@ -25,13 +23,12 @@ export default function Message({ message, photoURL, uid }: DocumentType) {
       }`}
     >
       {(send || smell) && (
-        <img
-          className="w-8 bg-red-200 rounded-full sm:w-10 aspect-square"
-          src={
-            photoURL ||
-            "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80"
-          }
-        />
+        <div
+          style={{ backgroundColor: bg, color: fg }}
+          className="flex items-center justify-center w-8 h-8 font-mono text-xl text-center text-white rounded-full sm:text-3xl sm:w-10 sm:h-10 "
+        >
+          {character}
+        </div>
       )}
       <p
         className={`w-[fit-content] max-w-[65%] md:max-w-[55%] min-h-[40px] flex items-center rounded-md p-2 backdrop-blur-lg ${

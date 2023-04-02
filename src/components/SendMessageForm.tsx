@@ -17,8 +17,7 @@ function SendMessageForm() {
 
   async function sendMessage(evt: FormEvent<HTMLFormElement>) {
     evt.preventDefault();
-    if (currentUser === null) return;
-    if (message.trim() === "") return updateStore(initialValue);
+    if (message.trim() === "" || !currentUser) return updateStore(initialValue);
     updateStore(initialValue);
     await setNewMessage({ message, email: currentUser.email as string });
   }
