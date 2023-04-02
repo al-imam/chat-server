@@ -20,6 +20,7 @@ export interface DocumentType {
   id: string;
   photoURL: string;
   createdAt: Date;
+  email: string;
 }
 
 const db = getFirestore(app);
@@ -35,7 +36,7 @@ function useRealTimeUpdates({ reference, limit = 30 }: Argument) {
 
     const destroy = onSnapshot(ref, (snapshot) => {
       const updatedData = snapshot.docs.map((snap) => {
-        const { uid, photoURL, createdAt, message } = snap.data();
+        const { uid, photoURL, createdAt, message, email } = snap.data();
 
         return {
           message,
@@ -43,6 +44,7 @@ function useRealTimeUpdates({ reference, limit = 30 }: Argument) {
           uid,
           photoURL,
           createdAt: new Date(createdAt * 1000),
+          email,
         } as DocumentType;
       });
 
