@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "@app/initializeFirebase";
 
@@ -23,6 +24,7 @@ export interface AuthContextValueType {
   singup: sing;
   login: sing;
   logout: () => Promise<void>;
+  updateUserProfile: (user: User, colors: string) => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthContextValueType | null>(null);
@@ -62,12 +64,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
+  async function updateUserProfile(user: User, info: string) {
+    return updateProfile(user, { photoURL: info });
+  }
+
   function logout(): Promise<void> {
     return signOut(auth);
   }
 
   return (
-    <AuthContext.Provider value={{ singup, login, logout, currentUser }}>
+    <AuthContext.Provider
+      value={{ singup, login, logout, currentUser, updateUserProfile }}
+    >
       {wait || children}
     </AuthContext.Provider>
   );
