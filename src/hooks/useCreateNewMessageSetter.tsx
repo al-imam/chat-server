@@ -13,7 +13,10 @@ const db = getFirestore(app);
 function useCreateNewMessageSetter(reference: string) {
   const { currentUser } = useAuth();
 
-  return function setNewMessage({ message }: Pick<DocumentType, "message">) {
+  return function setNewMessage({
+    message,
+    email,
+  }: Pick<DocumentType, "message"> & { email: string }) {
     if (currentUser === null) return;
     const ref = collection(db, reference);
     return addDoc(ref, {
@@ -21,6 +24,7 @@ function useCreateNewMessageSetter(reference: string) {
       message,
       photoURL: currentUser.photoURL,
       createdAt: serverTimestamp(),
+      email: email,
     });
   };
 }
