@@ -31,10 +31,10 @@ export default function Singup() {
 
   return (
     <section className="mx-auto sm:mb-16 mt-16 rounded w-sm-screen sm:w-[30rem] sm:bg-primary/5 sm:backdrop-blur-3xl sm:shadow-sm sm:px-6 sm:py-12">
-      <h1 className="text-4xl sm:mb-12 text-fg">Singup</h1>
+      <h1 className="text-4xl sm:mb-12 text-fg dark:text-white">Singup</h1>
       <form
         onSubmit={singupUser}
-        className="flex flex-col gap-4 py-12 mx-auto rounded w-sm-screen sm:w-[30rem] sm:bg-black/5  sm:backdrop-blur-3xl sm:shadow-sm sm:px-6"
+        className="flex flex-col gap-4 py-12 mx-auto rounded w-sm-screen sm:w-[30rem] sm:bg-black/5 dark:sm:bg-white/[0.07] sm:backdrop-blur-3xl sm:shadow-sm sm:px-6"
       >
         <InputText
           value={email}

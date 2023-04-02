@@ -34,7 +34,7 @@ export default function Login() {
       </h1>
       <form
         onSubmit={loginUser}
-        className="flex flex-col gap-4 py-12 mx-auto rounded w-sm-screen sm:w-[30rem] sm:bg-black/5 dark:sm:bg-white/5 sm:backdrop-blur-3xl transition-none sm:shadow-sm sm:px-6"
+        className="flex flex-col gap-4 py-12 mx-auto rounded w-sm-screen sm:w-[30rem] sm:bg-black/5 dark:sm:bg-white/[0.07] sm:backdrop-blur-3xl transition-none sm:shadow-sm sm:px-6"
       >
         <InputText
           value={email}
