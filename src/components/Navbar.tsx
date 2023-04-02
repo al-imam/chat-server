@@ -7,23 +7,32 @@ export default function Navbar() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
 
   function changeTheme() {
-    const t = theme === "dark" ? "light" : "dark";
-    localStorage.setItem("chat-server-theme", t);
-    setTheme(t);
-    if (t === "dark") {
-      return document.documentElement.classList.add("dark");
+    switch (theme) {
+      case "light":
+        setTheme("dark");
+        localStorage.setItem("chat-server-theme", "dark");
+        return document.documentElement.classList.add("dark");
+      case "dark":
+        setTheme("light");
+        localStorage.setItem("chat-server-theme", "light");
+        return document.documentElement.classList.remove("dark");
+      default:
+        return document.documentElement.classList.remove("dark");
     }
-    document.documentElement.classList.remove("dark");
   }
+
   useEffect(() => {
     const t = localStorage.getItem("chat-server-theme") as "dark" | "light";
-    if (t) {
-      setTheme(t);
+    switch (t) {
+      case "dark":
+        setTheme(t);
+        return document.documentElement.classList.add("dark");
+      case "light":
+        setTheme(t);
+        return document.documentElement.classList.remove("dark");
+      default:
+        return document.documentElement.classList.remove("dark");
     }
-    if (t === "dark") {
-      return document.documentElement.classList.add("dark");
-    }
-    document.documentElement.classList.remove("dark");
   }, []);
 
   return (
