@@ -5,6 +5,7 @@ import ShortNotice from "@app/components/ShortNotice";
 import useAuth from "@app/hooks/useAuth";
 import { FormEvent } from "react";
 import useStore from "@app/hooks/useStore";
+import getRandomColor from "@app/utilitys/getRandomColor";
 
 interface InitialState {
   email: string;
@@ -21,11 +22,15 @@ const initialState: InitialState = {
 export default function Singup() {
   const [{ email, password, cp }, updateStore] = useStore(initialState);
 
-  const { singup } = useAuth();
+  const { singup, updateUserProfile } = useAuth();
 
   async function singupUser(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    await singup({ email, password });
+    const userCredential = await singup({ email, password });
+    await updateUserProfile(
+      userCredential.user,
+      JSON.stringify({ ...getRandomColor(), character: email.at(0) })
+    );
     updateStore(initialState);
   }
 
