@@ -2,6 +2,7 @@ import { FormEvent } from "react";
 import { SendMessageIcon } from "@svg/Index";
 import useStore from "@app/hooks/useStore";
 import useCreateNewMessageSetter from "@app/hooks/useCreateNewMessageSetter";
+import useAuth from "@app/hooks/useAuth";
 
 const initialValue = {
   message: "",
@@ -10,14 +11,16 @@ const initialValue = {
 
 function SendMessageForm() {
   const [{ message, isFocus }, updateStore] = useStore(initialValue);
+  const { currentUser } = useAuth();
 
   const setNewMessage = useCreateNewMessageSetter("message");
 
   async function sendMessage(evt: FormEvent<HTMLFormElement>) {
     evt.preventDefault();
+    if (currentUser === null) return;
     if (message.trim() === "") return updateStore(initialValue);
     updateStore(initialValue);
-    await setNewMessage({ message });
+    await setNewMessage({ message, email: currentUser.email as string });
   }
 
   return (
