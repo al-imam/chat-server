@@ -23,8 +23,6 @@ export default function Navbar() {
         setTheme("light");
         localStorage.setItem("chat-server-theme", "light");
         return document.documentElement.classList.remove("dark");
-      default:
-        return document.documentElement.classList.remove("dark");
     }
   }
 
