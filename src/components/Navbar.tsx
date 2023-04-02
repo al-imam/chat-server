@@ -2,9 +2,16 @@ import { NavLink } from "react-router-dom";
 import { MessageIcon, DarkMode, LightMode } from "@svg/Index";
 import NavAction from "@app/components/NavAction";
 import { useState, useEffect } from "react";
+import useMedia from "@app/hooks/useMedia";
 
 export default function Navbar() {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useState<"dark" | "light">("light");
+
+  const colorTheme = useMedia("(prefers-color-scheme: dark)")
+    ? "dark"
+    : "light";
+
+  console.log(colorTheme);
 
   function changeTheme() {
     switch (theme) {
@@ -31,9 +38,18 @@ export default function Navbar() {
         setTheme(t);
         return document.documentElement.classList.remove("dark");
       default:
-        return document.documentElement.classList.remove("dark");
+        switch (colorTheme) {
+          case "light":
+            setTheme(colorTheme);
+            return document.documentElement.classList.remove("dark");
+          case "dark":
+            setTheme(colorTheme);
+            return document.documentElement.classList.add("dark");
+          default:
+            return document.documentElement.classList.remove("dark");
+        }
     }
-  }, []);
+  }, [colorTheme]);
 
   return (
     <nav className="flex items-center h-16 bg-black/10 dark:bg-white/5 shadow backdrop-blur-lg">
