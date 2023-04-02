@@ -3,6 +3,14 @@ import lngType from "@app/utilitys/detectLanguage";
 import { DocumentType } from "@app/hooks/useRealTimeUpdates";
 import useAuth from "@app/hooks/useAuth";
 
+function getRandomColor() {
+  const colorWhile = Math.floor(Math.random() * 360);
+  return {
+    bg: `hsl(${colorWhile} 100% 75%)`,
+    fg: `hsl(${colorWhile} 100% 10%)`,
+  };
+}
+
 export default function Message({ message, photoURL, uid }: DocumentType) {
   const smell = useMedia("(min-width: 40rem)");
 
