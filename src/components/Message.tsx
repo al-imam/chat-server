@@ -1,11 +1,8 @@
-import useMedia from "@app/hooks/useMedia";
 import lngType from "@app/utilitys/detectLanguage";
 import { DocumentType } from "@app/hooks/useRealTimeUpdates";
 import useAuth from "@app/hooks/useAuth";
 
 export default function Message({ message, photoURL, uid }: DocumentType) {
-  const smell = useMedia("(min-width: 40rem)");
-
   const { currentUser } = useAuth();
 
   const send = currentUser?.uid === uid ? false : true;
@@ -22,12 +19,17 @@ export default function Message({ message, photoURL, uid }: DocumentType) {
         send ? "items-start" : "flex-row-reverse items-end"
       }`}
     >
-      {(send || smell) && (
+      {send && (
         <div
-          style={{ backgroundColor: bg, color: fg }}
-          className="flex items-center justify-center w-8 h-8 font-mono text-xl text-center text-white rounded-full sm:text-3xl sm:w-10 sm:h-10 "
+          style={{ backgroundColor: bg }}
+          className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 "
         >
-          {character}
+          <span
+            style={{ color: fg }}
+            className="relative text-2xl uppercase sm:text-4xl top-[2px] font-prime"
+          >
+            {character}
+          </span>
         </div>
       )}
       <p
