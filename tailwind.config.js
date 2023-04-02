@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
 const { fontFamily } = require("tailwindcss/defaultTheme");
-const { slate } = require("tailwindcss/colors");
 
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -31,6 +30,7 @@ export default {
       fontFamily: {
         primary: ["Ubuntu", ...fontFamily.sans],
         bangla: ["Hind Siliguri", ...fontFamily.sans],
+        prime: ["Courier Prime", ...fontFamily.mono],
       },
     },
   },
