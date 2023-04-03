@@ -6,6 +6,7 @@ import { FormEvent } from "react";
 import useStore from "@app/hooks/useStore";
 import useAuth from "@app/hooks/useAuth";
 import ErrorAlert from "@app/components/ErrorAlert";
+import emailRegex from "@app/utilitys/regex";
 
 interface InitialState {
   email: string;
@@ -36,7 +37,15 @@ export default function Login() {
     event.preventDefault();
     updateStore({ loading: true, error: null });
     /* @ts-ignore - react don't export full type of form event */
-    const { email, password } = event.target.elements as ELEMENTS;
+    const { email: eI, password: pI } = event.target.elements as ELEMENTS;
+
+    if (!email.match(emailRegex)) {
+      eI.focus();
+      return updateStore({
+        loading: false,
+        error: "Enter a valid email 🥹",
+      });
+    }
 
     try {
       // await login({ email, password });
@@ -44,7 +53,10 @@ export default function Login() {
       return updateStore(initialState);
     } catch (error) {
       console.dir(error);
-      return updateStore({ loading: false, error: "Something went wrong! 🥹" });
+      return updateStore({
+        loading: false,
+        error: "Something went wrong! 🥹",
+      });
     }
   }
 

@@ -38,7 +38,7 @@ function escape(ex: string) {
   return `\\${ex}`;
 }
 
-const email = new RegExp(
+const emailRegex = new RegExp(
   startWith(letter()) +
     word({ haveDot: true }) +
     mustHave("@") +
@@ -57,4 +57,4 @@ const email = new RegExp(
     )
 );
 
-export default email;
+export default emailRegex;
