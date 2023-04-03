@@ -7,6 +7,7 @@ import useStore from "@app/hooks/useStore";
 import useAuth from "@app/hooks/useAuth";
 import ErrorAlert from "@app/components/ErrorAlert";
 import emailRegex from "@app/utilitys/regex";
+import { FirebaseError } from "firebase/app";
 
 interface InitialState {
   email: string;
@@ -43,7 +44,7 @@ export default function Login() {
       eI.focus();
       return updateStore({
         loading: false,
-        error: "Enter a valid email 🥹",
+        error: "Enter a valid email 😑",
       });
     }
 
@@ -57,14 +58,27 @@ export default function Login() {
     }
 
     try {
-      // await login({ email, password });
-      await new Promise((r, e) => setTimeout(e, 3000));
+      await login({ email, password });
       return updateStore(initialState);
-    } catch (error) {
+    } catch (error: any) {
+      if (error.code === "auth/user-not-found") {
+        return updateStore({
+          loading: false,
+          error: "Account not exist 😒",
+        });
+      }
+
+      if (error.code === "auth/wrong-password") {
+        return updateStore({
+          loading: false,
+          error: "Email and password don't match 😑",
+        });
+      }
+
       console.dir(error);
       return updateStore({
         loading: false,
-        error: "Something went wrong! 🥹",
+        error: "Something went wrong! 😓",
       });
     }
   }
