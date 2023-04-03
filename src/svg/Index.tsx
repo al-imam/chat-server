@@ -328,3 +328,53 @@ export function DarkMode(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function ErrorIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      viewBox="0 0 21 21"
+      {...props}
+    >
+      <g fill="none" fillRule="evenodd">
+        <circle
+          cx="10.5"
+          cy="10.5"
+          r="8"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        ></circle>
+        <path
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M10.5 11.5v-5"
+        ></path>
+        <circle cx="10.5" cy="14.5" r="1" fill="currentColor"></circle>
+      </g>
+    </svg>
+  );
+}
+
+export function CloseIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 21 21"
+      {...props}
+    >
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="m15.5 15.5l-10-10zm0-10l-10 10"
+      ></path>
+    </svg>
+  );
+}
