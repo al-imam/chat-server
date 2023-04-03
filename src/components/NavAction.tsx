@@ -1,8 +1,9 @@
 import useAuth from "@app/hooks/useAuth";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 export default function NavAction() {
   const { currentUser, logout } = useAuth();
+  const login = useLocation().pathname.includes("login");
 
   return (
     <li>
@@ -16,9 +17,9 @@ export default function NavAction() {
       ) : (
         <NavLink
           className="flex items-center h-full px-6 text-white border-none rounded shadow outline-none max-h-[2rem] bg-primary outline-offset-0 focus-visible:outline-1 focus-visible:outline-dark focus-visible:ring focus-visible:ring-light hover:bg-primary-hover active:bg-primary-active dark:focus-visible:outline-none"
-          to="/login"
+          to={login ? "/singup" : "/login"}
         >
-          Login
+          {login ? "Singup" : "Login"}
         </NavLink>
       )}
     </li>
