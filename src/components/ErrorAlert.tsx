@@ -5,9 +5,9 @@ interface AlertProps {
   close: () => void;
 }
 
-function Alter({ error, close }: AlertProps) {
+function ErrorAlert({ error, close }: AlertProps) {
   return (
-    <div className="">
+    <div className="flex items-center gap-2 p-4 rounded">
       <div>
         <ErrorIcon />
       </div>
@@ -19,4 +19,4 @@ function Alter({ error, close }: AlertProps) {
   );
 }
 
-export default Alter;
+export default ErrorAlert;

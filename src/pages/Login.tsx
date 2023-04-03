@@ -5,6 +5,7 @@ import ShortNotice from "@app/components/ShortNotice";
 import { FormEvent } from "react";
 import useStore from "@app/hooks/useStore";
 import useAuth from "@app/hooks/useAuth";
+import ErrorAlert from "@app/components/ErrorAlert";
 
 interface InitialState {
   email: string;
@@ -21,7 +22,8 @@ const initialState: InitialState = {
 };
 
 export default function Login() {
-  const [{ email, password, loading }, updateStore] = useStore(initialState);
+  const [{ email, password, loading, error }, updateStore] =
+    useStore(initialState);
 
   const { login } = useAuth();
 
@@ -48,6 +50,12 @@ export default function Login() {
         noValidate={true}
         className="flex flex-col gap-4 py-12 mx-auto rounded w-sm-screen sm:w-[30rem] sm:bg-black/5 dark:sm:bg-white/[0.07] sm:backdrop-blur-3xl transition-none sm:shadow-sm sm:px-6"
       >
+        {error === null || (
+          <ErrorAlert
+            error={error + ""}
+            close={() => updateStore({ error: null })}
+          />
+        )}
         <InputText
           value={email}
           onChange={(event) => updateStore({ email: event.target.value })}
