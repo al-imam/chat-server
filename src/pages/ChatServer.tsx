@@ -1,4 +1,3 @@
-import SendMessage from "@app/components/SendMessage";
 import Message from "@app/components/Message";
 import { useEffect, useRef } from "react";
 import useRealTimeUpdates from "@app/hooks/useRealTimeUpdates";
