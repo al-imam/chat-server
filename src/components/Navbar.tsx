@@ -47,21 +47,17 @@ export default function Navbar() {
     const t = localStorage.getItem("chat-server-theme") as "dark" | "light";
     switch (t) {
       case "dark":
-        setTheme(t);
-        return document.documentElement.classList.add("dark");
+        return setDarkMood(setTheme, false);
       case "light":
-        setTheme(t);
-        return document.documentElement.classList.remove("dark");
+        return setLightMood(setTheme, false);
       default:
         switch (colorTheme) {
           case "light":
-            setTheme(colorTheme);
-            return document.documentElement.classList.remove("dark");
+            return setLightMood(setTheme, false);
           case "dark":
-            setTheme(colorTheme);
-            return document.documentElement.classList.add("dark");
+            return setDarkMood(setTheme, false);
           default:
-            return document.documentElement.classList.remove("dark");
+            return setLightMood(setTheme, false);
         }
     }
   }, [colorTheme]);
