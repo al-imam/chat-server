@@ -11,16 +11,21 @@ interface InitialState {
   email: string;
   password: string;
   cp: string;
+  loading: boolean;
+  error: null | string;
 }
 
 const initialState: InitialState = {
   email: "",
   password: "",
   cp: "",
+  loading: false,
+  error: null,
 };
 
 export default function Singup() {
-  const [{ email, password, cp }, updateStore] = useStore(initialState);
+  const [{ email, password, cp, loading, error }, updateStore] =
+    useStore(initialState);
 
   const { singup, updateUserProfile } = useAuth();
 
@@ -44,6 +49,7 @@ export default function Singup() {
         <InputText
           value={email}
           onChange={(event) => updateStore({ email: event.target.value })}
+          disabled={loading}
           placeholder="example@gmail.com"
           type="email"
           name="email"
@@ -51,16 +57,18 @@ export default function Singup() {
         <InputPassword
           value={password}
           onChange={(event) => updateStore({ password: event.target.value })}
+          disabled={loading}
           placeholder="$^#23_zqx"
           name="password"
         />
         <InputPassword
           value={cp}
           onChange={(event) => updateStore({ cp: event.target.value })}
+          disabled={loading}
           placeholder="again - $^#23_zqx"
           name="cp"
         />
-        <Button child="Singup" />
+        <Button child="Singup" disabled={loading} />
         <hr className="border-gray-300 dark:border-gray-600 " />
         <ShortNotice
           description="Already have account? "
