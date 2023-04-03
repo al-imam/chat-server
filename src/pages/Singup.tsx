@@ -74,6 +74,12 @@ export default function Singup() {
         onSubmit={singupUser}
         className="flex flex-col gap-4 py-12 mx-auto rounded w-sm-screen sm:w-[30rem] sm:bg-black/5 dark:sm:bg-white/[0.07] sm:backdrop-blur-3xl sm:shadow-sm sm:px-6"
       >
+        {error === null || (
+          <ErrorAlert
+            error={error}
+            close={() => updateStore({ error: null })}
+          />
+        )}
         <InputText
           value={email}
           onChange={(event) => updateStore({ email: event.target.value })}
