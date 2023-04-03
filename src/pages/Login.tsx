@@ -30,7 +30,7 @@ export default function Login() {
     updateStore({ loading: true, error: null });
     try {
       // await login({ email, password });
-      await new Promise((r) => setTimeout(r, 3000));
+      await new Promise((r, e) => setTimeout(e, 3000));
       return updateStore(initialState);
     } catch (error) {
       console.dir(error);
