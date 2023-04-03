@@ -69,12 +69,17 @@ export default function Singup() {
       });
     }
 
-    const userCredential = await singup({ email, password });
-    await updateUserProfile(
-      userCredential.user,
-      JSON.stringify({ ...getRandomColor(), character: email.at(0) })
-    );
-    updateStore(initialState);
+    try {
+      const userCredential = await singup({ email, password });
+      await updateUserProfile(
+        userCredential.user,
+        JSON.stringify({ ...getRandomColor(), character: email.at(0) })
+      );
+      return updateStore(initialState);
+    } catch (error: any) {
+      console.dir(error);
+      updateStore({ loading: false, error: error.code });
+    }
   }
 
   return (
