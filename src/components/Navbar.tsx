@@ -4,16 +4,26 @@ import NavAction from "@app/components/NavAction";
 import { useState, useEffect } from "react";
 import useMedia from "@app/hooks/useMedia";
 
-function setDarkMode(
+function setDarkMood(
   setTheme: React.Dispatch<React.SetStateAction<"dark" | "light">>,
   save = true
 ) {
   setTheme("dark");
   if (save) localStorage.setItem("chat-server-theme", "dark");
   document.documentElement.classList.add("dark");
+  document.documentElement.style.setProperty("--outline-light", "231 40% 50%");
+}
+
+function setLightMood(
+  setTheme: React.Dispatch<React.SetStateAction<"dark" | "light">>,
+  save = true
+) {
+  setTheme("light");
+  if (save) localStorage.setItem("chat-server-theme", "light");
+  document.documentElement.classList.remove("dark");
   document.documentElement.style.setProperty(
     "--outline-light",
-    "231, 40%, 50%"
+    "237 100% 69% / 0.2"
   );
 }
 
@@ -27,11 +37,9 @@ export default function Navbar() {
   function changeTheme() {
     switch (theme) {
       case "light":
-        return setDarkMode(setTheme);
+        return setDarkMood(setTheme);
       case "dark":
-        setTheme("light");
-        localStorage.setItem("chat-server-theme", "light");
-        return document.documentElement.classList.remove("dark");
+        return setLightMood(setTheme);
     }
   }
 
