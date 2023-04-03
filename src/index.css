@@ -56,7 +56,8 @@
   }
 
   .filter-opacity {
-    filter: opacity(0.5);
+    filter: opacity(0.8);
+    backdrop-filter: blur(2rem);
   }
 
   .chat-room::-webkit-scrollbar {
