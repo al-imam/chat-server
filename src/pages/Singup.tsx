@@ -6,6 +6,7 @@ import useAuth from "@app/hooks/useAuth";
 import { FormEvent } from "react";
 import useStore from "@app/hooks/useStore";
 import getRandomColor from "@app/utilitys/getRandomColor";
+import emailRegex from "@app/utilitys/regex";
 
 interface InitialState {
   email: string;
@@ -40,6 +41,23 @@ export default function Singup() {
     updateStore({ error: null, loading: true });
     /* @ts-ignore - react don't export full type of form event */
     const { e, cp, p } = event.target.elements as ELEMENTS;
+
+    if (!email.match(emailRegex)) {
+      e.focus();
+      return updateStore({
+        loading: false,
+        error: "Enter a valid email 😑",
+      });
+    }
+
+    if (password.trim().length <= 5) {
+      p.focus();
+      return updateStore({
+        password: password.trim() === "" ? "" : password,
+        loading: false,
+        error: "Password required 6 character 😏",
+      });
+    }
 
     const userCredential = await singup({ email, password });
     await updateUserProfile(
