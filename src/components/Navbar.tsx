@@ -68,7 +68,7 @@ export default function Navbar() {
         <li className="mr-auto">
           <NavLink
             to="/"
-            className="relative shadow text-primary max-h-[2rem] focus-visible:outline-dark focus-visible:shadow after-element"
+            className="relative border-none outline-none text-primary max-h-[2rem] focus-visible:text-slate-950 after-element"
           >
             <MessageIcon />
           </NavLink>
@@ -76,7 +76,7 @@ export default function Navbar() {
         <li className="max-h-[2rem]">
           <button
             onClick={changeTheme}
-            className="border-none rounded outline-none max-h-[2rem] text-fg outline-offset-0 focus-visible:outline-1 focus-visible:outline-dark focus-visible:ring focus-visible:ring-light"
+            className="border-none rounded outline-none max-h-[2rem] text-fg outline-offset-0 focus-visible:outline-1 focus-visible:outline-dark focus-visible:ring focus-visible:ring-light dark:focus-visible:outline-none"
           >
             {theme === "dark" ? (
               <LightMode className="scale-90 text-slate-200" />
