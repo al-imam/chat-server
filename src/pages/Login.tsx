@@ -16,7 +16,7 @@ interface InitialState {
 const initialState: InitialState = {
   email: "",
   password: "",
-  loading: true,
+  loading: false,
   error: null,
 };
 
@@ -27,8 +27,15 @@ export default function Login() {
 
   async function loginUser(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    await login({ email, password });
-    updateStore(initialState);
+    updateStore({ loading: true, error: null });
+    try {
+      // await login({ email, password });
+      await new Promise((r) => setTimeout(r, 3000));
+      return updateStore(initialState);
+    } catch (error) {
+      console.dir(error);
+      return updateStore({ loading: false, error: "Something went wrong! 🥹" });
+    }
   }
 
   return (
@@ -38,6 +45,7 @@ export default function Login() {
       </h1>
       <form
         onSubmit={loginUser}
+        noValidate={true}
         className="flex flex-col gap-4 py-12 mx-auto rounded w-sm-screen sm:w-[30rem] sm:bg-black/5 dark:sm:bg-white/[0.07] sm:backdrop-blur-3xl transition-none sm:shadow-sm sm:px-6"
       >
         <InputText
