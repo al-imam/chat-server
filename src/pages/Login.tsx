@@ -9,15 +9,19 @@ import useAuth from "@app/hooks/useAuth";
 interface InitialState {
   email: string;
   password: string;
+  loading: boolean;
+  error: null | string;
 }
 
 const initialState: InitialState = {
   email: "",
   password: "",
+  loading: true,
+  error: null,
 };
 
 export default function Login() {
-  const [{ email, password }, updateStore] = useStore(initialState);
+  const [{ email, password, loading }, updateStore] = useStore(initialState);
 
   const { login } = useAuth();
 
@@ -41,13 +45,15 @@ export default function Login() {
           onChange={(event) => updateStore({ email: event.target.value })}
           placeholder="example@gmail.com"
           type="email"
+          disabled={loading}
         />
         <InputPassword
           value={password}
           onChange={(event) => updateStore({ password: event.target.value })}
           placeholder="$^#23_zqx"
+          disabled={loading}
         />
-        <Button child="Login" />
+        <Button child="Login" disabled={loading} />
         <hr className="border-gray-300 dark:border-gray-600 " />
         <ShortNotice
           description="Don't have account? "
