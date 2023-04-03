@@ -7,6 +7,7 @@ import { FormEvent } from "react";
 import useStore from "@app/hooks/useStore";
 import getRandomColor from "@app/utilitys/getRandomColor";
 import emailRegex from "@app/utilitys/regex";
+import ErrorAlert from "@app/components/ErrorAlert";
 
 interface InitialState {
   email: string;
@@ -40,7 +41,7 @@ export default function Singup() {
     event.preventDefault();
     updateStore({ error: null, loading: true });
     /* @ts-ignore - react don't export full type of form event */
-    const { e, cp, p } = event.target.elements as ELEMENTS;
+    const { e, cp: c, p } = event.target.elements as ELEMENTS;
 
     if (!email.match(emailRegex)) {
       e.focus();
@@ -59,6 +60,15 @@ export default function Singup() {
       });
     }
 
+    if (cp !== password) {
+      c.focus();
+      return updateStore({
+        cp: cp.trim() === "" ? "" : cp,
+        loading: false,
+        error: "Passwords don't match 🫤",
+      });
+    }
+
     const userCredential = await singup({ email, password });
     await updateUserProfile(
       userCredential.user,
@@ -72,6 +82,7 @@ export default function Singup() {
       <h1 className="text-4xl sm:mb-12 text-fg dark:text-white">Singup</h1>
       <form
         onSubmit={singupUser}
+        noValidate={true}
         className="flex flex-col gap-4 py-12 mx-auto rounded w-sm-screen sm:w-[30rem] sm:bg-black/5 dark:sm:bg-white/[0.07] sm:backdrop-blur-3xl sm:shadow-sm sm:px-6"
       >
         {error === null || (
