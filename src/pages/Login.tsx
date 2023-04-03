@@ -47,6 +47,15 @@ export default function Login() {
       });
     }
 
+    if (password.trim().length <= 5) {
+      pI.focus();
+      return updateStore({
+        password: password.trim() === "" ? "" : password,
+        loading: false,
+        error: "Password required 6 character 😏",
+      });
+    }
+
     try {
       // await login({ email, password });
       await new Promise((r, e) => setTimeout(e, 3000));
