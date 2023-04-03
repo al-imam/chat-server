@@ -11,7 +11,7 @@ function ErrorAlert({ error, close }: AlertProps) {
       <div className="flex items-center justify-center ">
         <ErrorIcon />
       </div>
-      <p>{error}</p>
+      <p className="mr-auto">{error}</p>
       <button onClick={close} type="button">
         <CloseIcon />
       </button>
