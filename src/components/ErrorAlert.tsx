@@ -8,7 +8,7 @@ interface AlertProps {
 function ErrorAlert({ error, close }: AlertProps) {
   return (
     <div className="flex items-center gap-2 p-4 bg-red-400 rounded text-slate-900">
-      <div>
+      <div className="flex items-center justify-center ">
         <ErrorIcon />
       </div>
       <p>{error}</p>
