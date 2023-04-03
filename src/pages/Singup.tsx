@@ -77,8 +77,22 @@ export default function Singup() {
       );
       return updateStore(initialState);
     } catch (error: any) {
+      if (error.code === "auth/email-already-in-use") {
+        return updateStore({
+          loading: false,
+          error: "Email already in use 😶‍🌫️",
+        });
+      }
+
+      if (error.code === "auth/network-request-failed") {
+        return updateStore({
+          loading: false,
+          error: "Network issue try later 🥹",
+        });
+      }
+
       console.dir(error);
-      updateStore({ loading: false, error: error.code });
+      return updateStore({ loading: false, error: "Something went wrong 🥹" });
     }
   }
 
