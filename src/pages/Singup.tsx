@@ -15,6 +15,12 @@ interface InitialState {
   error: null | string;
 }
 
+interface ELEMENTS {
+  e: HTMLInputElement;
+  p: HTMLInputElement;
+  cp: HTMLInputElement;
+}
+
 const initialState: InitialState = {
   email: "",
   password: "",
@@ -31,6 +37,10 @@ export default function Singup() {
 
   async function singupUser(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    updateStore({ error: null, loading: true });
+    /* @ts-ignore - react don't export full type of form event */
+    const { e, cp, p } = event.target.elements as ELEMENTS;
+
     const userCredential = await singup({ email, password });
     await updateUserProfile(
       userCredential.user,
@@ -52,14 +62,14 @@ export default function Singup() {
           disabled={loading}
           placeholder="example@gmail.com"
           type="email"
-          name="email"
+          name="e"
         />
         <InputPassword
           value={password}
           onChange={(event) => updateStore({ password: event.target.value })}
           disabled={loading}
           placeholder="$^#23_zqx"
-          name="password"
+          name="p"
         />
         <InputPassword
           value={cp}
