@@ -75,6 +75,13 @@ export default function Login() {
         });
       }
 
+      if (error.code === "auth/network-request-failed") {
+        return updateStore({
+          loading: false,
+          error: "Network issue try later 😓",
+        });
+      }
+
       console.dir(error);
       return updateStore({
         loading: false,
