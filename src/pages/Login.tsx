@@ -21,6 +21,11 @@ const initialState: InitialState = {
   error: null,
 };
 
+interface ELEMENTS {
+  email: HTMLInputElement;
+  password: HTMLInputElement;
+}
+
 export default function Login() {
   const [{ email, password, loading, error }, updateStore] =
     useStore(initialState);
@@ -30,6 +35,9 @@ export default function Login() {
   async function loginUser(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     updateStore({ loading: true, error: null });
+    /* @ts-ignore - react don't export full type of form event */
+    const { email, password } = event.target.elements as ELEMENTS;
+
     try {
       // await login({ email, password });
       await new Promise((r, e) => setTimeout(e, 3000));
@@ -52,7 +60,7 @@ export default function Login() {
       >
         {error === null || (
           <ErrorAlert
-            error={error + ""}
+            error={error}
             close={() => updateStore({ error: null })}
           />
         )}
@@ -62,12 +70,14 @@ export default function Login() {
           placeholder="example@gmail.com"
           type="email"
           disabled={loading}
+          name="email"
         />
         <InputPassword
           value={password}
           onChange={(event) => updateStore({ password: event.target.value })}
           placeholder="$^#23_zqx"
           disabled={loading}
+          name="password"
         />
         <Button child="Login" disabled={loading} />
         <hr className="border-gray-300 dark:border-gray-600 " />
