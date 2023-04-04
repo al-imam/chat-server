@@ -7,6 +7,7 @@ import {
   orderBy,
   limitToLast,
   onSnapshot,
+  Timestamp,
 } from "firebase/firestore";
 
 interface Argument {
@@ -19,7 +20,7 @@ export interface DocumentType {
   uid: string;
   id: string;
   photoURL: string;
-  createdAt: number;
+  createdAt: Date;
   email: string;
 }
 
@@ -46,7 +47,7 @@ function useRealTimeUpdates({ reference, limit = 30 }: Argument) {
             id: snap.id,
             uid,
             photoURL,
-            createdAt: createdAt * 1000,
+            createdAt: createdAt.toDate(),
             email,
           } as DocumentType;
         });
