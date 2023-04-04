@@ -1,8 +1,10 @@
 import lngType from "@app/utilitys/detectLanguage";
 import { DocumentType } from "@app/hooks/useRealTimeUpdates";
 import useAuth from "@app/hooks/useAuth";
+import { useState } from "react";
 
 export default function Message({ message, photoURL, uid }: DocumentType) {
+  const [click, setClick] = useState(false);
   const { currentUser } = useAuth();
 
   const send = currentUser?.uid === uid ? false : true;
@@ -14,8 +16,7 @@ export default function Message({ message, photoURL, uid }: DocumentType) {
   };
 
   return (
-    <div className="mx-auto text-slate-400 sm-width sm:max-w-3xl">
-      <p className={`${send ? "" : "text-right"} text-sm`}>emaple@gmail.com</p>
+    <div className="mx-auto text-slate-400 sm-width sm:max-w-3xl group/hover">
       <div
         className={`sm-width sm:max-w-3xl mx-auto relative flex gap-2 translate-x-[1px] ${
           send ? "items-start" : "flex-row-reverse items-end"
@@ -44,7 +45,13 @@ export default function Message({ message, photoURL, uid }: DocumentType) {
           {message}
         </p>
       </div>
-      <p className={`${send ? "" : "text-right"} text-sm`}>2 second ago</p>
+      <p
+        className={`${
+          send || "text-right"
+        } text-sm ml-10 sm:ml-12 opacity-0 max-h-0 group-hover/hover:opacity-100 duration-500 group-hover/hover:max-h-10`}
+      >
+        2 second ago
+      </p>
     </div>
   );
 }
