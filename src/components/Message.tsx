@@ -1,10 +1,13 @@
 import lngType from "@app/utilitys/detectLanguage";
 import { DocumentType } from "@app/hooks/useRealTimeUpdates";
 import useAuth from "@app/hooks/useAuth";
-import { useState } from "react";
 
-export default function Message({ message, photoURL, uid }: DocumentType) {
-  const [click, setClick] = useState(false);
+export default function Message({
+  message,
+  photoURL,
+  uid,
+  createdAt,
+}: DocumentType) {
   const { currentUser } = useAuth();
 
   const send = currentUser?.uid === uid ? false : true;
@@ -46,11 +49,9 @@ export default function Message({ message, photoURL, uid }: DocumentType) {
         </p>
       </div>
       <p
-        className={`${
-          send || "text-right"
-        } text-sm ml-10 sm:ml-12 opacity-0 max-h-0 group-hover/hover:opacity-100 duration-500 group-hover/hover:max-h-10`}
+        className={`text-center text-sm ml-10 sm:ml-12 opacity-0 max-h-0 group-hover/hover:opacity-100 duration-500 group-hover/hover:max-h-10`}
       >
-        2 second ago
+        {createdAt.toLocaleTimeString()}
       </p>
     </div>
   );
