@@ -18,8 +18,6 @@ export default function Message({
     hover: last,
   });
 
-  console.log(last);
-
   const handleMouseEnter = () => {
     clearTimeout(leave);
     updateStore({
@@ -85,8 +83,8 @@ export default function Message({
       <p
         className={`${
           send || "text-right"
-        } text-slate-500 dark:text-slate-400 text-sm ml-10 sm:ml-12 opacity-0 max-h-0 transition-all duration-500 ${
-          hover ? "opacity-100 max-h-20" : ""
+        } text-slate-500 dark:text-slate-400 text-sm ml-10 sm:ml-12 opacity-0 h-0 transition-all duration-500 ${
+          hover && "opacity-100 h-5"
         }`}
       >
         {relativeTimeFormatter(createdAt)}
