@@ -22,7 +22,7 @@ export default function Message({
   return (
     <div className="mx-auto text-slate-400 sm-width sm:max-w-3xl supports-[not_selector(:has(p:hover))]:[&:hover>_.time]:opacity-100 supports-[not_selector(:has(p:hover))]:[&:hover>_.time]:max-h-10">
       <div
-        className={`supports-[not_selector(:has(p:hover))] relative flex gap-2 translate-x-[1px] ${
+        className={`[&:has(p:hover,div:hover)+.time]:max-h-10 [&:has(:is(p,div):hover)+.time]:opacity-100  relative flex gap-2 translate-x-[1px] ${
           send ? "items-start" : "flex-row-reverse items-end"
         }`}
       >
@@ -52,7 +52,7 @@ export default function Message({
       <p
         className={`${
           send || "text-right"
-        } time text-sm ml-10 sm:ml-12 opacity-0 max-h-0 transition-all duration-500`}
+        } time pointer-events-none text-sm ml-10 sm:ml-12 opacity-0 max-h-0 transition-all duration-500`}
       >
         {relativeTimeFormatter(createdAt)}
       </p>
