@@ -18,9 +18,9 @@ export default function ChatServer() {
     <div
       className={`flex flex-col gap-4 py-4 supports-[height:100dvh]:height-subtract-nav-dvh height-subtract-nav-vh landscape:height-subtract-nav-vh `}
     >
-      <div className="flex flex-col gap-3 mt-auto overflow-x-hidden overflow-y-visible mask-image-gradient sm:gap-6 chat-room">
-        {messages.map((message) => (
-          <Message key={message.id} {...message} />
+      <div className="flex flex-col gap-3 mt-auto overflow-x-hidden overflow-y-scroll mask-image-gradient sm:gap-6 chat-room">
+        {messages.map((message, i, a) => (
+          <Message key={message.id} {...message} last={a.length - 1 === i} />
         ))}
         <span ref={scrollToMe}></span>
       </div>

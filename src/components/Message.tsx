@@ -10,14 +10,15 @@ export default function Message({
   photoURL,
   uid,
   createdAt,
-}: DocumentType) {
-  const [_, setHover] = useState(false);
-  const [delayHandler, setDelayHandler] = useState(0);
+  last = false,
+}: DocumentType & { last?: boolean }) {
   const [{ enter, leave, hover }, updateStore] = useStore({
     enter: 0,
     leave: 0,
-    hover: false,
+    hover: last,
   });
+
+  console.log(last);
 
   const handleMouseEnter = () => {
     clearTimeout(leave);
