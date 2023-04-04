@@ -2,6 +2,8 @@ import lngType from "@app/utilitys/detectLanguage";
 import { DocumentType } from "@app/hooks/useRealTimeUpdates";
 import useAuth from "@app/hooks/useAuth";
 import relativeTimeFormatter from "@app/utilitys/relativeTime";
+import { useState } from "react";
+import useStore from "@app/hooks/useStore";
 
 export default function Message({
   message,
@@ -9,6 +11,32 @@ export default function Message({
   uid,
   createdAt,
 }: DocumentType) {
+  const [_, setHover] = useState(false);
+  const [delayHandler, setDelayHandler] = useState(0);
+  const [{ enter, leave, hover }, updateStore] = useStore({
+    enter: 0,
+    leave: 0,
+    hover: false,
+  });
+
+  const handleMouseEnter = () => {
+    clearTimeout(leave);
+    updateStore({
+      enter: setTimeout(() => {
+        updateStore({ hover: true });
+      }, 250),
+    });
+  };
+
+  const handleMouseLeave = () => {
+    clearTimeout(enter);
+    updateStore({
+      leave: setTimeout(() => {
+        updateStore({ hover: false });
+      }, 250),
+    });
+  };
+
   const { currentUser } = useAuth();
 
   const send = currentUser?.uid === uid ? false : true;
@@ -20,15 +48,17 @@ export default function Message({
   };
 
   return (
-    <div className="mx-auto sm-width sm:max-w-3xl supports-[not_selector(:has(p:hover))]:[&:hover>_.time]:opacity-100 supports-[not_selector(:has(p:hover))]:[&:hover>_.time]:max-h-20">
+    <div className="mx-auto sm-width sm:max-w-3xl">
       <div
-        className={`[&:has(p:hover,div:hover)+.time]:max-h-20 [&:has(:is(p,div):hover)+.time]:opacity-100  relative flex gap-2 translate-x-[1px] ${
+        className={`relative flex gap-2 translate-x-[1px] ${
           send ? "items-start" : "flex-row-reverse items-end"
         }`}
       >
         {send && (
           <div
             style={{ backgroundColor: bg }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 "
           >
             <span
@@ -40,6 +70,8 @@ export default function Message({
           </div>
         )}
         <p
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           className={`w-[fit-content] max-w-[65%] md:max-w-[55%] min-h-[40px] flex items-center rounded-md p-2 backdrop-blur-lg ${
             send
               ? "bg-black/5 dark:bg-white/5 text-fg dark:text-slate-50"
@@ -52,7 +84,9 @@ export default function Message({
       <p
         className={`${
           send || "text-right"
-        } time text-slate-500 dark:text-slate-400  pointer-events-none text-sm ml-10 sm:ml-12 opacity-0 max-h-0 transition-all duration-500`}
+        } text-slate-500 dark:text-slate-400 text-sm ml-10 sm:ml-12 opacity-0 max-h-0 transition-all duration-500 ${
+          hover ? "opacity-100 max-h-20" : ""
+        }`}
       >
         {relativeTimeFormatter(createdAt)}
       </p>
