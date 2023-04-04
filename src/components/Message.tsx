@@ -26,7 +26,7 @@ export default function Message({ message, photoURL, uid }: DocumentType) {
         >
           <span
             style={{ color: fg }}
-            className="relative text-2xl uppercase sm:text-4xl top-[2px] font-prime"
+            className="text-xl uppercase  sm:text-3xl font-changa-one"
           >
             {character}
           </span>
