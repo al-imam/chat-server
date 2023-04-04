@@ -1,6 +1,7 @@
 import lngType from "@app/utilitys/detectLanguage";
 import { DocumentType } from "@app/hooks/useRealTimeUpdates";
 import useAuth from "@app/hooks/useAuth";
+import relativeTimeFormatter from "@app/utilitys/relativeTime";
 
 export default function Message({
   message,
@@ -51,7 +52,7 @@ export default function Message({
       <p
         className={`text-center text-sm ml-10 sm:ml-12 opacity-0 max-h-0 group-hover/hover:opacity-100 duration-500 group-hover/hover:max-h-10`}
       >
-        {createdAt.toLocaleTimeString()}
+        {relativeTimeFormatter(createdAt)}
       </p>
     </div>
   );

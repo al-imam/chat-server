@@ -1,6 +1,5 @@
 function relativeTimeFormatter(date: Date) {
-  const seconds = (Date.now() - date.getTime()) * 1000;
-
+  const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
   if (seconds < 60) {
     return `${seconds} seconds ago`;
   } else if (seconds < 3600) {
