@@ -30,7 +30,7 @@ export default {
       fontFamily: {
         primary: ["Ubuntu", ...fontFamily.sans],
         bangla: ["Hind Siliguri", ...fontFamily.sans],
-        prime: ["Courier Prime", ...fontFamily.mono],
+        "changa-one": ["Changa One", ...fontFamily.mono],
       },
     },
   },
