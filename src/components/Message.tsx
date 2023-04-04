@@ -14,33 +14,37 @@ export default function Message({ message, photoURL, uid }: DocumentType) {
   };
 
   return (
-    <div
-      className={`sm-width sm:max-w-3xl mx-auto relative flex gap-2 translate-x-[1px] ${
-        send ? "items-start" : "flex-row-reverse items-end"
-      }`}
-    >
-      {send && (
-        <div
-          style={{ backgroundColor: bg }}
-          className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 "
-        >
-          <span
-            style={{ color: fg }}
-            className="text-xl uppercase  sm:text-3xl font-changa-one"
-          >
-            {character}
-          </span>
-        </div>
-      )}
-      <p
-        className={`w-[fit-content] max-w-[65%] md:max-w-[55%] min-h-[40px] flex items-center rounded-md p-2 backdrop-blur-lg ${
-          send
-            ? "bg-black/5 dark:bg-white/5 text-fg dark:text-slate-50"
-            : "bg-[#0b93f6]/70 dark:bg-[#0b93f6]/90 text-white"
-        } ${lngType(message) === "bangla" ? "font-bangla" : "font-primary"}`}
+    <div className="mx-auto text-slate-400 sm-width sm:max-w-3xl">
+      <p className={`${send ? "" : "text-right"} text-sm`}>emaple@gmail.com</p>
+      <div
+        className={`sm-width sm:max-w-3xl mx-auto relative flex gap-2 translate-x-[1px] ${
+          send ? "items-start" : "flex-row-reverse items-end"
+        }`}
       >
-        {message}
-      </p>
+        {send && (
+          <div
+            style={{ backgroundColor: bg }}
+            className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 "
+          >
+            <span
+              style={{ color: fg }}
+              className="text-xl uppercase sm:text-3xl font-changa-one"
+            >
+              {character}
+            </span>
+          </div>
+        )}
+        <p
+          className={`w-[fit-content] max-w-[65%] md:max-w-[55%] min-h-[40px] flex items-center rounded-md p-2 backdrop-blur-lg ${
+            send
+              ? "bg-black/5 dark:bg-white/5 text-fg dark:text-slate-50"
+              : "bg-[#0b93f6]/70 dark:bg-[#0b93f6]/90 text-white"
+          } ${lngType(message) === "bangla" ? "font-bangla" : "font-primary"}`}
+        >
+          {message}
+        </p>
+      </div>
+      <p className={`${send ? "" : "text-right"} text-sm`}>2 second ago</p>
     </div>
   );
 }
