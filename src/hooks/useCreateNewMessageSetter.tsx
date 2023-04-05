@@ -14,16 +14,15 @@ const db = getFirestore(app);
 function useCreateNewMessageSetter(reference: string) {
   const { currentUser, blockCurrentUser } = useAuth();
 
-  return async function setNewMessage({
-    message,
-    email,
-    callBack,
-  }: Pick<DocumentType, "message"> & { email: string; callBack?: () => void }) {
+  return async function setNewMessage(
+    { message, email }: Pick<DocumentType, "message"> & { email: string },
+    callBack: () => void
+  ) {
     if (currentUser === null || currentUser.displayName === "block") return;
 
     const ref = collection(db, reference);
 
-    callBack?.();
+    callBack();
 
     if (checkProfanity(message)) {
       await addDoc(ref, {
