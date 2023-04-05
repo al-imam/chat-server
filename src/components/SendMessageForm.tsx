@@ -52,6 +52,7 @@ function SendMessageForm() {
           className="flex-grow mr-3 rounded-sm outline-none text-primary hover:enabled:text-primary-hover active:enabled:text-primary-active focus-visible:outline-4 focus-visible:outline-light focus-visible:outline-offset-0 disabled:opacity-50"
           type="submit"
           disabled={!message}
+          aria-label="send message"
         >
           <SendMessageIcon />
         </button>

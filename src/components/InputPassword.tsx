@@ -38,6 +38,7 @@ const InputPassword: React.FunctionComponent<
       <button
         className="relative flex items-center justify-center h-8 mx-2 bg-black/0  border-none rounded-full outline-none aspect-square hover:bg-black/5 active:bg-black/10 focus-visible:bg-black/10"
         type="button"
+        aria-label="password show"
         onClick={() => setOpen((p) => !p)}
       >
         <div className="flex items-center justify-center w-6 h-6 text-slate-400 hover:text-slate-600">

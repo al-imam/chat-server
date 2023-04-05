@@ -132,7 +132,7 @@ export default function Singup() {
           placeholder="again - $^#23_zqx"
           name="cp"
         />
-        <Button child="Singup" disabled={loading} />
+        <Button child="Singup" disabled={loading} aria-label="singup button" />
         <hr className="border-gray-300 dark:border-gray-600 " />
         <ShortNotice
           description="Already have account? "

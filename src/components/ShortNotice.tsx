@@ -17,6 +17,7 @@ export default function ShortNotice({
       <Link
         to={to}
         className="rounded outline-none text-primary hover:underline outline-offset-0 focus-visible:outline-1 focus-visible:outline-dark dark:focus-visible:outline-transparent focus-visible:ring focus-visible:ring-light"
+        aria-label={`link to ${to}`}
       >
         {text}
       </Link>

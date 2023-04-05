@@ -121,7 +121,7 @@ export default function Login() {
           disabled={loading}
           name="password"
         />
-        <Button child="Login" disabled={loading} />
+        <Button child="Login" disabled={loading} aria-label="Login button" />
         <hr className="border-gray-300 dark:border-gray-600 " />
         <ShortNotice
           description="Don't have account? "

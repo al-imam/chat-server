@@ -11,6 +11,7 @@ export default function NavAction() {
         <button
           onClick={async () => await logout()}
           className="flex items-center h-full px-6 text-white border-none rounded shadow outline-none max-h-[2rem] bg-primary outline-offset-0 focus-visible:outline-1 focus-visible:outline-dark focus-visible:ring focus-visible:ring-light hover:bg-primary-hover active:bg-primary-active dark:focus-visible:outline-none"
+          aria-label="Logout button"
         >
           Logout
         </button>
@@ -18,6 +19,7 @@ export default function NavAction() {
         <NavLink
           className="flex items-center h-full px-6 text-white border-none rounded shadow outline-none max-h-[2rem] bg-primary outline-offset-0 focus-visible:outline-1 focus-visible:outline-dark focus-visible:ring focus-visible:ring-light hover:bg-primary-hover active:bg-primary-active dark:focus-visible:outline-none"
           to={login ? "/singup" : "/login"}
+          aria-label={`${login ? "Singup" : "Login"} link`}
         >
           {login ? "Singup" : "Login"}
         </NavLink>

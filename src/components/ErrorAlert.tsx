@@ -16,6 +16,7 @@ function ErrorAlert({ error, close }: AlertProps) {
         className="flex items-center justify-center rounded-full p-1 outline-none focus-visible:bg-white/30 hover:bg-white/30 scale-125 backdrop-blur-3xl"
         onClick={close}
         type="button"
+        aria-label="close alert"
       >
         <CloseIcon />
       </button>

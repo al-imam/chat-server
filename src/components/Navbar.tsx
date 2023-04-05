@@ -69,6 +69,7 @@ export default function Navbar() {
           <NavLink
             to="/"
             className="relative border-none outline-none text-primary max-h-[2rem] focus-visible:text-slate-950 after-element"
+            aria-label="logo"
           >
             <MessageIcon />
           </NavLink>
@@ -77,6 +78,7 @@ export default function Navbar() {
           <button
             onClick={changeTheme}
             className="border-none rounded outline-none max-h-[2rem] text-fg outline-offset-0 focus-visible:outline-1 focus-visible:outline-dark focus-visible:ring focus-visible:ring-light dark:focus-visible:outline-none"
+            aria-label="theme switcher"
           >
             {theme === "dark" ? (
               <LightMode className="scale-90 text-slate-200" />
