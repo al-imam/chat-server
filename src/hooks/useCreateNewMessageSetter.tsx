@@ -25,7 +25,11 @@ function useCreateNewMessageSetter(reference: string) {
     callBack();
 
     if (checkProfanity(message)) {
-      await addDoc(ref, {
+      await blockCurrentUser()?.catch((e) => {
+        console.dir({ blockCurrentUser: e });
+      });
+
+      return await addDoc(ref, {
         uid: currentUser.uid,
         message,
         photoURL: null,
@@ -33,10 +37,6 @@ function useCreateNewMessageSetter(reference: string) {
         email: email,
       }).catch((e) => {
         console.dir({ checkProfanity: e });
-      });
-
-      return await blockCurrentUser().catch((e) => {
-        console.dir({ blockCurrentUser: e });
       });
     }
 
