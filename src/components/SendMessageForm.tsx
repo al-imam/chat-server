@@ -13,7 +13,7 @@ function SendMessageForm() {
   const [{ message, isFocus }, updateStore] = useStore(initialValue);
   const { currentUser } = useAuth();
 
-  const setNewMessage = useCreateNewMessageSetter("message");
+  const setNewMessage = useCreateNewMessageSetter("messages");
 
   async function sendMessage(evt: FormEvent<HTMLFormElement>) {
     evt.preventDefault();

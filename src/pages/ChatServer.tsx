@@ -5,7 +5,7 @@ import FormOrBlockCard from "@app/components/FormOrBlockCard";
 
 export default function ChatServer() {
   const messages = useRealTimeUpdates({
-    reference: "message",
+    reference: "messages",
   });
 
   const scrollToMe = useRef<HTMLSpanElement | null>(null);
