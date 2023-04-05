@@ -6,7 +6,9 @@ function MessageOrBlockCard({
   ...rest
 }: DocumentType & { block?: boolean }) {
   return block ? (
-    <p>{rest.email} blocked for breaking community guideline!</p>
+    <p className="mx-auto text-sm text-center sm:text-base sm-width-block sm:max-w-3xl text-slate-600 dark:text-slate-400 ">
+      {rest.email} blocked for breaking community guideline!
+    </p>
   ) : (
     <Message {...rest} />
   );
