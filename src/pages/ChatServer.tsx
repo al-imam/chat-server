@@ -1,8 +1,7 @@
-import Message from "@app/components/Message";
 import { useEffect, useRef } from "react";
 import useRealTimeUpdates from "@app/hooks/useRealTimeUpdates";
-import SendMessageForm from "@app/components/SendMessageForm";
 import MessageOrBlockCard from "@app/components/MessageOrBlockCard";
+import FormOrBlockCard from "@app/components/FormOrBlockCard";
 
 export default function ChatServer() {
   const messages = useRealTimeUpdates({
@@ -29,7 +28,7 @@ export default function ChatServer() {
         ))}
         <span ref={scrollToMe}></span>
       </div>
-      <SendMessageForm />
+      <FormOrBlockCard />
     </div>
   );
 }
