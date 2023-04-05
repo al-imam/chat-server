@@ -3,12 +3,14 @@ import { DocumentType } from "@app/hooks/useRealTimeUpdates";
 import useAuth from "@app/hooks/useAuth";
 import relativeTimeFormatter from "@app/utilitys/relativeTime";
 import useStore from "@app/hooks/useStore";
+import getRandomColor from "@app/utilitys/getRandomColor";
 
 export default function Message({
   message,
   photoURL,
   uid,
   createdAt,
+  email,
 }: DocumentType) {
   const [{ enter, leave, hover }, updateStore] = useStore({
     enter: 0,
@@ -38,11 +40,13 @@ export default function Message({
 
   const send = currentUser?.uid === uid ? false : true;
 
-  const { bg, fg, character } = JSON.parse(photoURL) as {
-    bg: string;
-    fg: string;
-    character: string;
-  };
+  const { bg, fg, character } =
+    JSON.parse(photoURL) ??
+    ({ ...getRandomColor(), character: email.at(0) || "w" } as {
+      bg: string;
+      fg: string;
+      character: string;
+    });
 
   return (
     <div className="mx-auto sm-width sm:max-w-3xl">
