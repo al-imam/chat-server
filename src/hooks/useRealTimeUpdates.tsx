@@ -7,7 +7,6 @@ import {
   orderBy,
   limitToLast,
   onSnapshot,
-  Timestamp,
 } from "firebase/firestore";
 
 interface Argument {
@@ -40,7 +39,9 @@ function useRealTimeUpdates({ reference, limit = 30 }: Argument) {
       ref,
       (snapshot) => {
         const updatedData = snapshot.docs.map((snap) => {
-          const { uid, photoURL, createdAt, message, email } = snap.data();
+          const { uid, photoURL, createdAt, message, email } = snap.data({
+            serverTimestamps: "estimate",
+          });
 
           return {
             message,
