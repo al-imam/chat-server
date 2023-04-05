@@ -2,7 +2,6 @@ import lngType from "@app/utilitys/detectLanguage";
 import { DocumentType } from "@app/hooks/useRealTimeUpdates";
 import useAuth from "@app/hooks/useAuth";
 import relativeTimeFormatter from "@app/utilitys/relativeTime";
-import { useState } from "react";
 import useStore from "@app/hooks/useStore";
 
 export default function Message({
@@ -10,12 +9,11 @@ export default function Message({
   photoURL,
   uid,
   createdAt,
-  last = false,
-}: DocumentType & { last?: boolean }) {
+}: DocumentType) {
   const [{ enter, leave, hover }, updateStore] = useStore({
     enter: 0,
     leave: 0,
-    hover: last,
+    hover: false,
   });
 
   const handleMouseEnter = () => {
