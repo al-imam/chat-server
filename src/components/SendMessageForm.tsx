@@ -23,37 +23,45 @@ function SendMessageForm() {
   }
 
   return (
-    <form
-      onSubmit={sendMessage}
-      className="mx-auto sm-width sm:max-w-3xl "
-      noValidate={true}
-    >
-      <div
-        className={`flex items-center bg-white rounded outline dark:outline-transparent outline-1  group ${
-          isFocus
-            ? "outline-dark dark:outline-transparent ring-4 ring-light"
-            : "outline-fg-200"
-        }`}
-      >
-        <input
-          value={message}
-          onChange={(e) => updateStore({ message: e.target.value })}
-          onFocus={() => updateStore({ isFocus: true })}
-          onBlur={() => updateStore({ isFocus: false })}
-          placeholder="Send message"
-          className="w-full p-4 bg-white border-none rounded outline-none text-my-slate-800 outline-offset-0 caret-current placeholder:text-fg-300 placeholder:select-none password"
-          autoComplete="off"
-          required
-        />
-        <button
-          className="flex-grow mr-3 rounded-sm outline-none text-primary hover:enabled:text-primary-hover active:enabled:text-primary-active focus-visible:outline-4 focus-visible:outline-light focus-visible:outline-offset-0 disabled:opacity-50"
-          type="submit"
-          disabled={!message}
+    <>
+      {currentUser ? (
+        <p className="mx-auto text-center bg-black/80 text-white font-primary pt-2 pb-4 rounded-t-md backdrop-blur-3xl sm-width sm:max-w-3xl -mb-4">
+          You can't reply you're blocked
+        </p>
+      ) : (
+        <form
+          onSubmit={sendMessage}
+          className="mx-auto sm-width sm:max-w-3xl"
+          noValidate={true}
         >
-          <SendMessageIcon />
-        </button>
-      </div>
-    </form>
+          <div
+            className={`flex items-center bg-white rounded outline dark:outline-transparent outline-1  group ${
+              isFocus
+                ? "outline-dark dark:outline-transparent ring-4 ring-light"
+                : "outline-fg-200"
+            }`}
+          >
+            <input
+              value={message}
+              onChange={(e) => updateStore({ message: e.target.value })}
+              onFocus={() => updateStore({ isFocus: true })}
+              onBlur={() => updateStore({ isFocus: false })}
+              placeholder="Send message"
+              className="w-full p-4 bg-white border-none rounded outline-none text-my-slate-800 outline-offset-0 caret-current placeholder:text-fg-300 placeholder:select-none password"
+              autoComplete="off"
+              required
+            />
+            <button
+              className="flex-grow mr-3 rounded-sm outline-none text-primary hover:enabled:text-primary-hover active:enabled:text-primary-active focus-visible:outline-4 focus-visible:outline-light focus-visible:outline-offset-0 disabled:opacity-50"
+              type="submit"
+              disabled={!message}
+            >
+              <SendMessageIcon />
+            </button>
+          </div>
+        </form>
+      )}
+    </>
   );
 }
 
