@@ -7,24 +7,48 @@ import {
   addDoc,
   serverTimestamp,
 } from "firebase/firestore";
+import checkProfanity from "@app/utilitys/checkProfanity";
 
 const db = getFirestore(app);
 
 function useCreateNewMessageSetter(reference: string) {
-  const { currentUser } = useAuth();
+  const { currentUser, blockCurrentUser } = useAuth();
 
-  return function setNewMessage({
+  return async function setNewMessage({
     message,
     email,
-  }: Pick<DocumentType, "message"> & { email: string }) {
+    callBack,
+  }: Pick<DocumentType, "message"> & { email: string; callBack?: () => void }) {
     if (currentUser === null || currentUser.displayName === "block") return;
+
     const ref = collection(db, reference);
-    return addDoc(ref, {
+
+    callBack?.();
+
+    if (checkProfanity(message)) {
+      await addDoc(ref, {
+        uid: currentUser.uid,
+        message,
+        photoURL: null,
+        createdAt: serverTimestamp(),
+        email: email,
+      }).catch((e) => {
+        console.dir({ checkProfanity: e });
+      });
+
+      return await blockCurrentUser().catch((e) => {
+        console.dir({ blockCurrentUser: e });
+      });
+    }
+
+    return await addDoc(ref, {
       uid: currentUser.uid,
       message,
       photoURL: currentUser.photoURL,
       createdAt: serverTimestamp(),
       email: email,
+    }).catch((e) => {
+      console.dir({ addValidMessage: e });
     });
   };
 }
