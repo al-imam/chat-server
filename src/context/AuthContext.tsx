@@ -25,7 +25,7 @@ export interface AuthContextValueType {
   login: sing;
   logout: () => Promise<void>;
   updateUserProfile: (user: User, colors: string) => Promise<void>;
-  blockCurrentUser: () => Promise<void> | undefined;
+  blockCurrentUser: () => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthContextValueType | null>(null);
@@ -74,7 +74,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   function blockCurrentUser() {
-    if (currentUser === null) return;
+    if (currentUser === null) return new Promise<void>((r) => r);
     return updateProfile(currentUser, { displayName: "block" });
   }
 
