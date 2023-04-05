@@ -25,7 +25,7 @@ function SendMessageForm() {
   return (
     <>
       {currentUser ? (
-        <p className="mx-auto text-center bg-black/80 text-white font-primary pt-2 pb-4 rounded-t-md backdrop-blur-3xl sm-width sm:max-w-3xl -mb-4">
+        <p className="mx-auto backdrop-blur-sm text-center bg-black/10 dark:bg-white/10 text-black dark:text-white font-primary pt-2 pb-4 rounded-t-md sm-width sm:max-w-3xl -mb-4">
           You can't reply you're blocked
         </p>
       ) : (
