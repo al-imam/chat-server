@@ -1,7 +1,7 @@
 import badWords from "./badWords";
 
 function checkProfanity(text: string) {
-  return badWords.every((word) => text.includes(word) === false);
+  return badWords.some((word) => text.includes(word));
 }
 
 export default checkProfanity;
