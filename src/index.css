@@ -95,6 +95,10 @@
     width: calc(100vw - var(--smell-screen-display-width));
   }
 
+  .sm-width-block {
+    width: calc(100vw - var(--smell-screen-display-width) - 10%);
+  }
+
   .height-subtract-nav-dvh {
     height: calc(100dvh - 64px);
   }
