@@ -17,7 +17,7 @@ function useCreateNewMessageSetter(reference: string) {
     message,
     email,
   }: Pick<DocumentType, "message"> & { email: string }) {
-    if (currentUser === null) return;
+    if (currentUser === null || currentUser.displayName === "block") return;
     const ref = collection(db, reference);
     return addDoc(ref, {
       uid: currentUser.uid,
