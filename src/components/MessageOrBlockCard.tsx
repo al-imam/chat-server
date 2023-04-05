@@ -5,7 +5,11 @@ function MessageOrBlockCard({
   block = Math.random() > 0.5 ? true : false,
   ...rest
 }: DocumentType & { block?: boolean }) {
-  return block ? <p>im blocked</p> : <Message {...rest} />;
+  return block ? (
+    <p>{rest.email} blocked for breaking community guideline!</p>
+  ) : (
+    <Message {...rest} />
+  );
 }
 
 export default MessageOrBlockCard;
