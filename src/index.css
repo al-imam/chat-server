@@ -100,11 +100,11 @@
   }
 
   .height-subtract-nav-dvh {
-    height: calc(100dvh - 64px);
+    height: calc(100dvh - calc(64px + env(safe-area-inset-top, 0)));
   }
 
   .height-subtract-nav-vh {
-    height: calc(100vh - 64px);
+    height: calc(100vh - calc(64px + env(safe-area-inset-top, 0)));
   }
 
   .after-element::after {
