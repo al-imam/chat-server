@@ -87,7 +87,7 @@ export default function Message({
         onMouseLeave={handleMouseLeave}
         className={`${
           send || "text-right"
-        } text-slate-500 dark:text-slate-400 text-sm ml-10 sm:ml-12 opacity-0 h-0 transition-all duration-500 ${
+        } text-slate-500 dark:text-slate-400 text-sm ml-10 sm:ml-12 opacity-0 h-0 transition-[height,opacity] duration-500 ${
           hover ? "opacity-100 h-5" : "pointer-events-none"
         }`}
       >
