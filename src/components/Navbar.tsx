@@ -63,7 +63,7 @@ export default function Navbar() {
   }, [colorTheme]);
 
   return (
-    <nav className="flex items-center h-16 navbar bg-black/10 dark:bg-white/5 shadow backdrop-blur-lg">
+    <nav className="flex items-center h-16 navbar bg-black/10 shadow-sm dark:bg-white/5 backdrop-blur">
       <ul className="flex gap-4 mx-auto sm-width sm:max-w-3xl ">
         <li className="mr-auto">
           <NavLink
