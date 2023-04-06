@@ -116,16 +116,16 @@
   }
 
   @media all and (display-mode: fullscreen) {
-    .navbar {
+    #root {
       padding-top: env(safe-area-inset-top, 2rem);
-      height: calc(4rem + env(safe-area-inset-top, 2rem));
+      padding-bottom: env(safe-area-inset-bottom, 0);
     }
   }
 
   @media all and (display-mode: standalone) {
-    .navbar {
+    #root {
       padding-top: env(safe-area-inset-top, 2rem);
-      height: calc(4rem + env(safe-area-inset-top, 2rem));
+      padding-bottom: env(safe-area-inset-bottom, 0);
     }
   }
 }
