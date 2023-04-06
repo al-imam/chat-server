@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       screen: {
-        standalone: { raw: "(display-mode: standalone)" },
+        standalone: { raw: "(display-mode: fullscreen)" },
       },
       colors: {
         light: "hsl(var(--outline-light))",
