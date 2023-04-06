@@ -114,4 +114,11 @@
     background-color: rgb(255, 255, 255);
     z-index: -1;
   }
+
+  @media all and (display-mode: fullscreen) {
+    .navbar {
+      padding-top: env(safe-area-inset-top, 2rem);
+      height: calc(4rem + env(safe-area-inset-top, 2rem));
+    }
+  }
 }
