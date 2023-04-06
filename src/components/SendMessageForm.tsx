@@ -30,6 +30,7 @@ function SendMessageForm() {
       onSubmit={sendMessage}
       className="mx-auto sm-width sm:max-w-3xl"
       noValidate={true}
+      autoComplete="off"
     >
       <div
         className={`flex items-center bg-white rounded outline dark:outline-transparent outline-1  group ${
@@ -40,6 +41,7 @@ function SendMessageForm() {
       >
         <input
           value={message}
+          type="text"
           onChange={(e) => updateStore({ message: e.target.value })}
           onFocus={() => updateStore({ isFocus: true })}
           onBlur={() => updateStore({ isFocus: false })}
