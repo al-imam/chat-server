@@ -115,6 +115,11 @@
     z-index: -1;
   }
 
+  .drop-shadow-cstm {
+    filter: drop-shadow(0 1px 1px hsl(var(--primary-active) / 0.5))
+      drop-shadow(0 1px 1px hsl(var(--primary-active) / 0.3));
+  }
+
   @media all and (display-mode: fullscreen) {
     .navbar {
       padding-top: env(safe-area-inset-top, 0);
