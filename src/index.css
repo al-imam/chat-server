@@ -123,12 +123,14 @@
   @media all and (display-mode: fullscreen) {
     .navbar {
       padding-top: env(safe-area-inset-top, 0);
+      height: calc(64px + env(safe-area-inset-top, 0));
     }
   }
 
   @media all and (display-mode: standalone) {
     .navbar {
       padding-top: env(safe-area-inset-top, 0);
+      height: calc(64px + env(safe-area-inset-top, 0));
     }
   }
 }
