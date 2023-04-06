@@ -69,7 +69,7 @@
   }
 
   .chat-room::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-black/40 dark:bg-white/20 backdrop-blur-lg;
+    @apply rounded-full bg-black/30 dark:bg-white/10 backdrop-blur-lg;
   }
 }
 

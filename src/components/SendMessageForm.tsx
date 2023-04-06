@@ -48,6 +48,8 @@ function SendMessageForm() {
           placeholder="Send message"
           className="w-full p-4 bg-white border-none rounded outline-none text-my-slate-800 outline-offset-0 caret-current placeholder:text-fg-300 placeholder:select-none password"
           autoComplete="off"
+          aria-autocomplete="none"
+          role="note"
           required
         />
         <button
