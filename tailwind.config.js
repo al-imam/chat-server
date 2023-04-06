@@ -7,6 +7,9 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      screen: {
+        standalone: { raw: "(display-mode: standalone)" },
+      },
       colors: {
         light: "hsl(var(--outline-light))",
         dark: {
