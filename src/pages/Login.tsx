@@ -3,11 +3,10 @@ import InputText from "@app/components/InputText";
 import Button from "@app/components/Button";
 import ShortNotice from "@app/components/ShortNotice";
 import { FormEvent } from "react";
-import useStore from "@app/hooks/useStore";
+import useObjectStore from "use-object-store";
 import useAuth from "@app/hooks/useAuth";
 import ErrorAlert from "@app/components/ErrorAlert";
 import emailRegex from "@app/utilitys/regex";
-import { FirebaseError } from "firebase/app";
 
 interface InitialState {
   email: string;
@@ -30,7 +29,7 @@ interface ELEMENTS {
 
 export default function Login() {
   const [{ email, password, loading, error }, updateStore] =
-    useStore(initialState);
+    useObjectStore(initialState);
 
   const { login } = useAuth();
 

@@ -4,7 +4,7 @@ import Button from "@app/components/Button";
 import ShortNotice from "@app/components/ShortNotice";
 import useAuth from "@app/hooks/useAuth";
 import { FormEvent } from "react";
-import useStore from "@app/hooks/useStore";
+import useObjectStore from "use-object-store";
 import getRandomColor from "@app/utilitys/getRandomColor";
 import emailRegex from "@app/utilitys/regex";
 import ErrorAlert from "@app/components/ErrorAlert";
@@ -33,7 +33,7 @@ const initialState: InitialState = {
 
 export default function Singup() {
   const [{ email, password, cp, loading, error }, updateStore] =
-    useStore(initialState);
+    useObjectStore(initialState);
 
   const { singup, updateUserProfile } = useAuth();
 

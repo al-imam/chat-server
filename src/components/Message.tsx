@@ -2,7 +2,7 @@ import lngType from "@app/utilitys/detectLanguage";
 import { DocumentType } from "@app/hooks/useRealTimeUpdates";
 import useAuth from "@app/hooks/useAuth";
 import relativeTimeFormatter from "@app/utilitys/relativeTime";
-import useStore from "@app/hooks/useStore";
+import useObjectStore from "use-object-store";
 import getRandomColor from "@app/utilitys/getRandomColor";
 
 export default function Message({
@@ -12,7 +12,7 @@ export default function Message({
   createdAt,
   email,
 }: DocumentType) {
-  const [{ enter, leave, hover }, updateStore] = useStore({
+  const [{ enter, leave, hover }, updateStore] = useObjectStore({
     enter: 0,
     leave: 0,
     hover: false,

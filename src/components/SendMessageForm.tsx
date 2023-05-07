@@ -1,6 +1,6 @@
 import { FormEvent } from "react";
 import { SendMessageIcon } from "@svg/Index";
-import useStore from "@app/hooks/useStore";
+import useObjectStore from "use-object-store";
 import useCreateNewMessageSetter from "@app/hooks/useCreateNewMessageSetter";
 import useAuth from "@app/hooks/useAuth";
 
@@ -10,7 +10,7 @@ const initialValue = {
 };
 
 function SendMessageForm() {
-  const [{ message, isFocus }, updateStore] = useStore(initialValue);
+  const [{ message, isFocus }, updateStore] = useObjectStore(initialValue);
   const { currentUser } = useAuth();
 
   const setNewMessage = useCreateNewMessageSetter("messages");
